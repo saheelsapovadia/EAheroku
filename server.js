@@ -14,8 +14,8 @@ const profile = require('./routes/profile');
 const routes = require('./routes/index');
 //MongoDB setup
 // DB Config
-const db = require('./config/key').mongoURI;
-
+//const db = require('./config/key').mongoURI;
+const db = process.env.MONGODB_URI;
 // Connect to MongoDB
 mongoose
   .connect(db, {
