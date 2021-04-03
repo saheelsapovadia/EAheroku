@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const User = require('../models/User');
+const User = require('../models/user');
 const Novel = require('../models/Novel');
 // @route   GET /:userid/bookmarklist
 // @desc    Get Bookmarked List
