@@ -2,7 +2,7 @@ const { OAuth2Client } = require('google-auth-library');
 const key = require('../config/key');
 const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
-const User = require('../models/User');
+const User = require('../models/user');
 module.exports = {
   auth: async (req, res, next) => {
     try {
