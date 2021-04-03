@@ -17,7 +17,7 @@ class ChapterPage extends Component {
   componentDidMount() {
     axios
       .get(
-        'http://localhost:5000/api/novels/' +
+        '/api/novels/' +
           this.props.match.params.id +
           '/' +
           this.props.match.params.no

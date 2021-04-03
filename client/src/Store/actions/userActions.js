@@ -3,7 +3,7 @@ import axios from 'axios';
 export const userLogin = (token, history) => {
   return (dispatch) => {
     axios
-      .post('http://localhost:5000/api/auth/checkToken', { body: token })
+      .post('/api/auth/checkToken', { body: token })
       .then((user) => {
         console.log('getUser');
         localStorage.setItem('userToken', token);

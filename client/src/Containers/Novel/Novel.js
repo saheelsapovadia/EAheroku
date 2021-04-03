@@ -19,17 +19,15 @@ class Novel extends Component {
 
   async componentDidMount() {
     console.log('Component Mount');
-    axios
-      .get('http://localhost:5000/api/novels/' + this.props.match.params.id)
-      .then((response) => {
-        //console.log(response);
-        this.setState({ novelinfo: response.data });
-        //console.log(this.state.novelinfo);
-      });
+    axios.get('/api/novels/' + this.props.match.params.id).then((response) => {
+      //console.log(response);
+      this.setState({ novelinfo: response.data });
+      //console.log(this.state.novelinfo);
+    });
     //checking bookmark status
     axios
       .get(
-        'http://localhost:5000/api/users/' +
+        '/api/users/' +
           this.props.userId +
           '/' +
           this.props.match.params.id +
@@ -56,7 +54,7 @@ class Novel extends Component {
       //checking bookmark status
       axios
         .get(
-          'http://localhost:5000/api/users/' +
+          '/api/users/' +
             this.props.userId +
             '/' +
             this.props.match.params.id +

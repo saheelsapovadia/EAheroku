@@ -34,7 +34,7 @@ class CarouselMain extends Component {
   };
 
   componentDidMount() {
-    axios.get('http://localhost:5000/api/novels/').then((response) => {
+    axios.get('/api/novels/').then((response) => {
       this.setState({ novels: response.data });
     });
   }

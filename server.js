@@ -15,7 +15,7 @@ const routes = require('./routes/index');
 //MongoDB setup
 // DB Config
 //const db = require('./config/key').mongoURI;
-const db = process.env.MONGODB_URI;
+const db = process.env.MONGODB_URI || require('./config/key').mongoURI;
 // Connect to MongoDB
 mongoose
   .connect(db, {
