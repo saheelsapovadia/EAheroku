@@ -14,7 +14,7 @@ router.use('/api/novels', novel);
 router.use('/api/profile', profile);
 router.use('/api/auth', auth);
 
-router.get('/*', function (req, res) {
+router.use('/*', function (req, res) {
   res.sendFile(path.join(__dirname, '..', 'client', 'build', 'index.html'));
 });
 // If no API routes are hit, send the React router

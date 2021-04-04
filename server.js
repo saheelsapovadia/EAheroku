@@ -51,22 +51,24 @@ app.use(function (req, res, next) {
   );
   next();
 });
-// app.use('/api/users', users);
-// app.use('/api/novels', novel);
-// app.use('/api/profile', profile);
-// app.use('/api/auth', auth);
+app.use('/api/users', users);
+app.use('/api/novels', novel);
+app.use('/api/profile', profile);
+app.use('/api/auth', auth);
 
-app.use(express.static(path.join(__dirname, 'client', 'build')));
+// Server static assets if in production
+if (process.env.NODE_ENV === 'production') {
+  // Set static folder
+  app.use(express.static(path.join(__dirname, 'client', 'build')));
 
-app.use(routes);
-// app.use('/api/users', users);
-// app.use('/api/novels', novel);
-// app.use('/api/profile', profile);
-// app.use('/api/auth', auth);
+  app.get('/*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  });
+}
 
-// app.get('/*', function (req, res) {
-//   res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
-// });
+// app.use(express.static(path.join(__dirname, 'client', 'build')));
+
+// app.use(routes);
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Server running on port ${port}`));
