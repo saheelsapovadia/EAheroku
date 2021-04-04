@@ -19,17 +19,15 @@ class NovelPage extends Component {
 
   async componentDidMount() {
     console.log('Component Mount');
-    axios
-      .get('http://localhost:5000/api/novels/' + this.props.match.params.id)
-      .then((response) => {
-        //console.log(response);
-        this.setState({ novelinfo: response.data });
-        //console.log(this.state.novelinfo);
-      });
+    axios.get('/api/novels/' + this.props.match.params.id).then((response) => {
+      //console.log(response);
+      this.setState({ novelinfo: response.data });
+      //console.log(this.state.novelinfo);
+    });
     //checking bookmark status
     // axios
     //   .get(
-    //     'http://localhost:5000/users/' +
+    //     '/api/users/' +
     //       this.props.userId +
     //       '/' +
     //       this.props.match.params.id +
@@ -52,11 +50,11 @@ class NovelPage extends Component {
     console.log('prev prop', prevProps.userId);
     console.log('user prop', this.props.userId);
     if (prevProps?.userId !== this.props.userId) {
-      console.log('setting..');
+      //console.log('setting..');
       //checking bookmark status
       //   axios
       //     .get(
-      //       'http://localhost:5000/users/' +
+      //       '/api/users/' +
       //         this.props.userId +
       //         '/' +
       //         this.props.match.params.id +
@@ -106,7 +104,7 @@ class NovelPage extends Component {
   };
   render() {
     console.log('Novel Component');
-    console.log(this.state);
+    //console.log(this.state);
     return (
       <Aux>
         <Container>

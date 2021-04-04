@@ -11,15 +11,15 @@ class Profile extends Component {
   };
 
   componentDidMount() {
-    console.log('Component Mount');
-    console.log(this.state.user);
+    //console.log('Component Mount');
+    // console.log(this.state.user);
     this.setState({ user: this.props.user });
-    console.log(this.state.user);
+    //console.log(this.state.user);
   }
   componentDidUpdate(prevProps) {
     if (prevProps.user._id !== this.props.user?._id) {
       this.setState({ user: this.props.user });
-      console.log(this.state.user);
+      //console.log(this.state.user);
     }
   }
   chapterSelectHandler = (id) => {
@@ -29,8 +29,8 @@ class Profile extends Component {
   };
 
   render() {
-    console.log('Profile Component');
-    console.log(this.state.user);
+    //console.log('Profile Component');
+    //console.log(this.state.user);
     const bookmark = this.state.user.bookmarked.map((item) => {
       return (
         <ChapterCard
@@ -40,7 +40,7 @@ class Profile extends Component {
         />
       );
     });
-    console.log(this.state.user._id);
+    //console.log(this.state.user._id);
     if (this.state.user?._id !== undefined) {
       return (
         <Container>

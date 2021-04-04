@@ -18,7 +18,7 @@ class Novel extends Component {
   };
 
   async componentDidMount() {
-    console.log('Component Mount');
+    //console.log('Component Mount');
     axios.get('/api/novels/' + this.props.match.params.id).then((response) => {
       //console.log(response);
       this.setState({ novelinfo: response.data });
@@ -34,21 +34,21 @@ class Novel extends Component {
           '/check'
       )
       .then((response) => {
-        console.log(response);
+        //console.log(response);
         this.setState({ bookmark: response.data.res });
-        console.log(this.state.bookmark);
+        //console.log(this.state.bookmark);
       })
       .catch((err) => {
         console.log(err);
       });
 
-    console.log(this.state.bookmark);
+    //console.log(this.state.bookmark);
   }
 
   componentDidUpdate(prevProps) {
-    console.log('Component Update');
-    console.log('prev prop', prevProps.userId);
-    console.log('user prop', this.props.userId);
+    //console.log('Component Update');
+    //console.log('prev prop', prevProps.userId);
+    //console.log('user prop', this.props.userId);
     if (prevProps?.userId !== this.props.userId) {
       console.log('setting..');
       //checking bookmark status
@@ -61,9 +61,9 @@ class Novel extends Component {
             '/check'
         )
         .then((response) => {
-          console.log(response);
+          //console.log(response);
           this.setState({ bookmark: response.data.res });
-          console.log(this.state.bookmark);
+          //console.log(this.state.bookmark);
         })
         .catch((err) => {
           console.log(err);
@@ -72,14 +72,14 @@ class Novel extends Component {
   }
 
   checkBookmark = (id) => {
-    console.log('checking...');
+    //console.log('checking...');
     var result;
     if (this.props.userBookmarks) {
       result = this.props.userBookmarks.find((id) => {
         return id === this.props.match.params.id;
       });
     }
-    console.log('result: ', result);
+    //console.log('result: ', result);
     return result ? true : false;
   };
 

@@ -19,12 +19,12 @@ import ScrollToTop from '../../utils/ScrollToTop';
 class Layout extends Component {
   componentDidMount() {
     if (localStorage.getItem('userToken') !== null) {
-      console.log('auto logging...', localStorage.getItem('userToken'));
+      console.log('auto logging...');
       this.props.userLogin(localStorage.getItem('userToken'));
     }
   }
   render() {
-    console.log('Layout Component');
+    //console.log('Layout Component');
     // if (localStorage.getItem('userToken') !== null) {
     //   this.props.userLogin(localStorage.getItem('userToken'));
     // }

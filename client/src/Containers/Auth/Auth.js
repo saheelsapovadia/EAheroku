@@ -9,12 +9,12 @@ class Auth extends Component {
   // }
   componentDidUpdate(prevProps) {
     if (prevProps !== this.props) {
-      console.log(this.props.history);
+      //console.log(this.props.history);
       if (this.props.isSignedIn) this.props.history.push('/');
     }
   }
   render() {
-    console.log(this.props.history);
+    //console.log(this.props.history);
     return <div>{this.props.isSignedIn ? <Logout /> : <Login />}</div>;
   }
 }

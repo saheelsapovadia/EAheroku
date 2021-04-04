@@ -4,12 +4,12 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import * as actions from '../Store/actions/index';
 class ProtectedRoute extends Component {
   render() {
-    console.log('Layout Component');
+    //console.log('Layout Component');
     // if (localStorage.getItem('userToken') !== null) {
     //   this.props.userLogin(localStorage.getItem('userToken'));
     // }
     const { component: Component, ...props } = this.props;
-    console.log('ProtectedRoute');
+    //console.log('ProtectedRoute');
     return (
       <Route
         {...props}
