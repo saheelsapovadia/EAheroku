@@ -19,15 +19,17 @@ class NovelPage extends Component {
 
   async componentDidMount() {
     console.log('Component Mount');
-    axios.get('/api/novels/' + this.props.match.params.id).then((response) => {
-      //console.log(response);
-      this.setState({ novelinfo: response.data });
-      //console.log(this.state.novelinfo);
-    });
+    axios
+      .get('http://localhost:5000/api/novels/' + this.props.match.params.id)
+      .then((response) => {
+        //console.log(response);
+        this.setState({ novelinfo: response.data });
+        //console.log(this.state.novelinfo);
+      });
     //checking bookmark status
     // axios
     //   .get(
-    //     '/api/users/' +
+    //     'http://localhost:5000/users/' +
     //       this.props.userId +
     //       '/' +
     //       this.props.match.params.id +
@@ -50,11 +52,11 @@ class NovelPage extends Component {
     console.log('prev prop', prevProps.userId);
     console.log('user prop', this.props.userId);
     if (prevProps?.userId !== this.props.userId) {
-      //console.log('setting..');
+      console.log('setting..');
       //checking bookmark status
       //   axios
       //     .get(
-      //       '/api/users/' +
+      //       'http://localhost:5000/users/' +
       //         this.props.userId +
       //         '/' +
       //         this.props.match.params.id +
@@ -99,35 +101,43 @@ class NovelPage extends Component {
   //   };
   addChapter = (id) => {
     this.props.history.push({
-      pathname: '/addchapter/' + id,
+      pathname: '/admin/addchapter/' + id,
     });
   };
   render() {
     console.log('Novel Component');
-    //console.log(this.state);
-    return (
-      <Aux>
-        <Container>
-          <h3 className='px-4 mb-5 mt-3'>{this.state.novelinfo.title} </h3>
-          <NovelInfo
-            novelInfo={this.state.novelinfo}
-            toggle={() => this.toggleBookMark()}
-          ></NovelInfo>
-          <Summary summary={this.state.novelinfo.synopsis}></Summary>
-          <ChapterList
-            chapterlist={this.state.novelinfo.Chapters}
-            novelId={this.props.match.params.id}
-          ></ChapterList>
+    console.log(this.state);
+    if (this.props.userRole !== 'admin') {
+      return (
+        <Aux>
+          <h2>Oops you are not an ADMIN!</h2>
+        </Aux>
+      );
+    } else {
+      return (
+        <Aux>
+          <Container>
+            <h3 className='px-4 mb-5 mt-3'>{this.state.novelinfo.title} </h3>
+            <NovelInfo
+              novelInfo={this.state.novelinfo}
+              toggle={() => this.toggleBookMark()}
+            ></NovelInfo>
+            <Summary summary={this.state.novelinfo.synopsis}></Summary>
+            <ChapterList
+              chapterlist={this.state.novelinfo.Chapters}
+              novelId={this.props.match.params.id}
+            ></ChapterList>
 
-          <Button
-            onClick={() => this.addChapter(this.props.match.params.id)}
-            variant='link'
-          >
-            <AiOutlinePlus /> Chapter
-          </Button>
-        </Container>
-      </Aux>
-    );
+            <Button
+              onClick={() => this.addChapter(this.props.match.params.id)}
+              variant='link'
+            >
+              <AiOutlinePlus /> Chapter
+            </Button>
+          </Container>
+        </Aux>
+      );
+    }
   }
 }
 
@@ -137,6 +147,7 @@ const mapStateToProps = (state) => {
   return {
     userBookmarks: userBookmarks,
     userId: state.user?.user?._id,
+    userRole: state.user?.user?.role,
   };
 };
 const mapDispatchToProps = (dispatch) => {

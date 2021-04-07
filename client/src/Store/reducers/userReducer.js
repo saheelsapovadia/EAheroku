@@ -22,7 +22,7 @@ const reducer = (state = initialState, action) => {
       return newState1;
 
     case actionTypes.USER_ADD_BOOKMARK:
-      //console.log('addBookmark reducer..');
+      console.log('addBookmark reducer..');
       //const newState2 = Object.assign({}, state);
       const newState2 = {
         ...state,
@@ -47,7 +47,7 @@ const reducer = (state = initialState, action) => {
       }
       var updatedBookmarkArr = arrayRemove(bookmarkedArr, action.novelId);
       newState3.user.bookmarked = updatedBookmarkArr;
-      //console.log('removing reducer');
+      console.log('removing reducer');
       return newState3;
 
     default:

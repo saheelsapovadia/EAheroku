@@ -4,8 +4,11 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import withRouter from 'react-router-dom/withRouter';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
 import Novel from './Latest/NovelCard';
-
+import './Carousel.css';
+import LoadingNovelCard from '../Loading/LoadingNovelCard';
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
   return (
@@ -30,12 +33,14 @@ function SamplePrevArrow(props) {
 
 class CarouselMain extends Component {
   state = {
-    novels: [],
+    novels: ['', '', '', '', '', ''],
+    isLoading: true,
   };
 
   componentDidMount() {
-    axios.get('/api/novels/').then((response) => {
+    axios.get('http://localhost:5000/api/novels/').then((response) => {
       this.setState({ novels: response.data });
+      this.setState({ isLoading: false });
     });
   }
 
@@ -77,8 +82,19 @@ class CarouselMain extends Component {
         {
           breakpoint: 480,
           settings: {
+            slidesToShow: 2,
+            slidesToScroll: 1,
+            initialSlide: 2,
+            nextArrow: <SampleNextArrow />,
+            prevArrow: <SamplePrevArrow />,
+          },
+        },
+        {
+          breakpoint: 375,
+          settings: {
             slidesToShow: 1,
             slidesToScroll: 1,
+            initialSlide: 1,
             nextArrow: <SampleNextArrow />,
             prevArrow: <SamplePrevArrow />,
           },
@@ -86,16 +102,37 @@ class CarouselMain extends Component {
       ],
     };
 
-    const novels = this.state.novels.map((novel) => {
-      return (
-        <Novel
-          title={novel.title}
-          image={novel.image}
-          clicked={() => this.novelSelectedHandler(novel._id)}
-        />
-      );
-    });
+    // const novels = this.state.novels.map((novel) => {
+    //   return (
+    //     <Container>
+    //       <Row>
+    //         <Novel
+    //           title={novel.title}
+    //           image={novel.image}
+    //           clicked={() => this.novelSelectedHandler(novel._id)}
+    //         />
+    //       </Row>
+    //     </Container>
+    //   );
+    // });
 
+    var novels;
+    if (this.state.isLoading) {
+      novels = this.state.novels.map((novel) => {
+        return <LoadingNovelCard></LoadingNovelCard>;
+      });
+    } else {
+      novels = this.state.novels.map((novel) => {
+        return (
+          <Novel
+            title={novel.title}
+            author={novel.author}
+            image={novel.image}
+            clicked={() => this.novelSelectedHandler(novel._id)}
+          />
+        );
+      });
+    }
     return <Slider {...settings}>{novels}</Slider>;
   }
 }

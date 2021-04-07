@@ -1,0 +1,38 @@
+.is-loading {
+  .image,
+  .test {
+    background: #eee;
+    background: linear-gradient(
+      110deg,
+      #e7e7e7 30%,
+      #e7e7e7 10%,
+      #eee 39%,
+      #e7e7e7 48%
+    );
+    border-radius: 5px;
+    background-size: 200% 100%;
+    animation: 2s shine linear infinite;
+  }
+
+  .image {
+    height: 350px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .test {
+    height: 50px;
+    width: 200px;
+  }
+}
+
+@keyframes shine {
+  to {
+    background-position-x: -200%;
+  }
+}
+
+@keyframes shine {
+  to {
+    background-position-x: -200%;
+  }
+}

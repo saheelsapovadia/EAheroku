@@ -3,6 +3,7 @@ import { Navbar, Nav, Button, NavDropdown } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import './Navbar.css';
 // const links = [
 //   { href: '/', text: 'Get Started' },
 //   { href: '/', text: 'Library' },
@@ -12,7 +13,7 @@ import { connect } from 'react-redux';
 
 const createNavItem = ({ href, text, className }) => (
   <Nav.Item key={text}>
-    <Nav.Link className={className}>
+    <Nav.Link className='navlink'>
       <Link to={href}> {text}</Link>
     </Nav.Link>
   </Nav.Item>
@@ -36,7 +37,6 @@ class NavbarMain extends Component {
           { href: '/', text: 'Get Started' },
           { href: '/', text: 'Library' },
           { href: '/', text: 'About Us' },
-          { href: '/postnovel', text: 'Post Novel' },
         ],
       });
     } else {
@@ -57,7 +57,7 @@ class NavbarMain extends Component {
             { href: '/', text: 'Get Started' },
             { href: '/', text: 'Library' },
             { href: '/', text: 'About Us' },
-            { href: '/postnovel', text: 'Post Novel' },
+
             // { href: '/profile', text: 'Profile' },
           ],
         });
@@ -67,7 +67,6 @@ class NavbarMain extends Component {
             { href: '/', text: 'Get Started' },
             { href: '/', text: 'Library' },
             { href: '/', text: 'About Us' },
-            { href: '/postnovel', text: 'Post Novel' },
           ],
         });
       }
@@ -98,33 +97,32 @@ class NavbarMain extends Component {
       ];
     }
     return (
-      <Navbar bg='light' variant='light' expand='lg' fixed-top>
-        <Navbar>
-          <Navbar.Brand>
-            <Link to='/' exact>
-              <img
-                src='EA-Logo-edit.png'
-                width='90'
-                height='70'
-                margin='none'
-                className='d-inline-block align-top'
-                alt='EA'
-                style={{ margin: 'none' }}
-              />
-            </Link>
-          </Navbar.Brand>
-        </Navbar>
+      <Navbar className='navbar' expand='lg' fixed-top>
+        <Navbar.Brand>
+          <Link to='/' exact>
+            <img
+              src='EA-Logo-edit.png'
+              width='90'
+              height='70'
+              margin='none'
+              className='d-inline-block align-top'
+              alt='EA'
+              style={{ margin: 'none' }}
+            />
+          </Link>
+        </Navbar.Brand>
+
         <Navbar.Toggle aria-controls='basic-navbar-nav' />
         <Navbar.Collapse id='basic-navbar-nav'>
-          <Nav className='mr-auto navbar' activeKey='/'>
+          <Nav className='mr-auto test' activeKey='/'>
             {this.state.links.map(createNavItem)}
-            {this.props.isSignedIn ? (
+            {this.props.isSignedIn && this.props.userRole === 'admin' ? (
               <NavDropdown title='Admin Console' id='basic-nav-dropdown'>
                 <NavDropdown.Item>
-                  <Link to='/allnovels'>All Novels</Link>
+                  <Link to='/admin/novels'>All Novels</Link>
                 </NavDropdown.Item>
                 <NavDropdown.Item>
-                  <Link to='/postnovel'>Post Novels</Link>
+                  <Link to='/admin/postnovel'>Post Novels</Link>
                 </NavDropdown.Item>
               </NavDropdown>
             ) : (
@@ -134,9 +132,9 @@ class NavbarMain extends Component {
 
           <Nav className='ml-auto navbar' navbar>
             <Nav.Item>
-              <Nav.Link href='#discord'>
-                <Button variant='outline-dark'>
-                  {/* <img height={25} width={40} src='discord.svg' alt='Discord' /> */}
+              <Nav.Link href='#discord' className='navlink'>
+                <Button variant='outline-light'>
+                  <img height={25} width={40} src='discord.svg' alt='Discord' />
                   Discord
                 </Button>
               </Nav.Link>
@@ -145,8 +143,13 @@ class NavbarMain extends Component {
               <Nav.Item>
                 <Nav.Link>
                   <Link to='/profile'>
-                    <Button variant='outline-dark'>
-                      {/* <img height={25} width={40} src='google.svg' alt='Login' /> */}
+                    <Button variant='outline-light'>
+                      <img
+                        height={25}
+                        width={40}
+                        src='google.svg'
+                        alt='Login'
+                      />
 
                       <img
                         src={this.props.user.image}
@@ -164,8 +167,13 @@ class NavbarMain extends Component {
               <Nav.Item>
                 <Nav.Link>
                   <Link to='/login'>
-                    <Button variant='outline-dark'>
-                      {/* <img height={25} width={40} src='google.svg' alt='Login' /> */}
+                    <Button variant='outline-light'>
+                      <img
+                        height={25}
+                        width={40}
+                        src='google.svg'
+                        alt='Login'
+                      />
                       Login
                     </Button>
                   </Link>
@@ -203,7 +211,11 @@ class NavbarMain extends Component {
 const mapStateToProps = (state) => {
   let user = {};
   if (state.user.user) user = state.user.user;
-  return { isSignedIn: state.user.isSignedIn, user: state.user.user };
+  return {
+    isSignedIn: state.user.isSignedIn,
+    user: state.user.user,
+    userRole: state.user?.user?.role,
+  };
 };
 
 export default connect(mapStateToProps)(NavbarMain);

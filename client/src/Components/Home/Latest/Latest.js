@@ -4,14 +4,17 @@ import Aux from '../../../hoc/Auxiliary';
 import { Container, Row } from 'react-bootstrap/';
 import axios from 'axios';
 import withRouter from 'react-router-dom/withRouter';
+import LoadingNovelCard from '../../Loading/LoadingNovelCard';
 class Latest extends Component {
   state = {
-    novels: [],
+    novels: ['', '', '', '', '', ''],
+    isLoading: true,
   };
 
   componentDidMount() {
-    axios.get('/api/novels/').then((response) => {
+    axios.get('http://localhost:5000/api/novels/').then((response) => {
       this.setState({ novels: response.data });
+      this.setState({ isLoading: false });
     });
   }
 
@@ -19,16 +22,23 @@ class Latest extends Component {
     this.props.history.push({ pathname: '/novels/' + id });
   };
   render() {
-    const novels = this.state.novels.map((novel) => {
-      return (
-        <Novel
-          title={novel.title}
-          author={novel.author}
-          image={novel.image}
-          clicked={() => this.novelSelectedHandler(novel._id)}
-        />
-      );
-    });
+    var novels;
+    if (this.state.isLoading) {
+      novels = this.state.novels.map((novel) => {
+        return <LoadingNovelCard></LoadingNovelCard>;
+      });
+    } else {
+      novels = this.state.novels.map((novel) => {
+        return (
+          <Novel
+            title={novel.title}
+            author={novel.author}
+            image={novel.image}
+            clicked={() => this.novelSelectedHandler(novel._id)}
+          />
+        );
+      });
+    }
     return (
       <Aux>
         <h6 className='mx-auto' style={{ alignContent: 'center' }}>

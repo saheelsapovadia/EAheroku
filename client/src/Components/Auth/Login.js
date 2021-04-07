@@ -28,7 +28,7 @@ class Login extends Component {
 
     const onFailure = (res) => {
       console.log('Login failed: res:', res);
-      alert(`Failed to login. 😢 Please try again`);
+      alert(`Failed to login. 😢 Developers will surely look into it!`);
     };
     return (
       <div>

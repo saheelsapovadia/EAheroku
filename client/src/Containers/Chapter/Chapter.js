@@ -7,6 +7,7 @@ import ToolBar from '../../Components/Chapter/ToolBar';
 import Button from 'react-bootstrap/Button';
 import { AiFillCaretLeft, AiFillCaretRight } from 'react-icons/ai';
 import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
 //import SupportUs from '../../components/home/supportus';
 //import * as actionTypes from '../../store/actions/actionTypes';
 
@@ -17,7 +18,7 @@ class ChapterPage extends Component {
   componentDidMount() {
     axios
       .get(
-        '/api/novels/' +
+        'http://localhost:5000/api/novels/' +
           this.props.match.params.id +
           '/' +
           this.props.match.params.no
@@ -36,22 +37,29 @@ class ChapterPage extends Component {
     return (
       <Aux>
         <Container>
-          <h3 className='mt-3 px-3'>{this.state.chapter.title}</h3>
-          <ToolBar></ToolBar>
-          <div dangerouslySetInnerHTML={this.createMarkup()}></div>
-          <div
-            className='mb-5'
-            style={{ display: 'flex', justifyContent: 'right' }}
-          >
-            <Button className='mr-2' variant='primary'>
+          <Row className="ml-auto">
+            <Button className="mr-2" variant="primary">
               <AiFillCaretLeft />
               Prev
             </Button>
-            <Button className='mr-2' variant='primary'>
+            <Button className="mr-2" variant="primary">
               <AiFillCaretRight />
               Next
             </Button>
-          </div>
+          </Row>
+          <h3 className="mt-3 px-3">{this.state.chapter.title}</h3>
+          {/* <ToolBar></ToolBar> */}
+          <div dangerouslySetInnerHTML={this.createMarkup()}></div>
+          <Row>
+            <Button className="mr-2" variant="primary">
+              <AiFillCaretLeft />
+              Prev
+            </Button>
+            <Button className="mr-2" variant="primary">
+              <AiFillCaretRight />
+              Next
+            </Button>
+          </Row>
           {/* <SupportUs /> */}
         </Container>
       </Aux>

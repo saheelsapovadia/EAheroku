@@ -10,10 +10,12 @@ class ChapterList extends Component {
   };
 
   componentDidMount() {
-    axios.get('/api/novels/' + this.props.novelId).then((response) => {
-      //console.log(response.data.Chapters);
-      this.setState({ chapters: response.data.Chapters });
-    });
+    axios
+      .get('http://localhost:5000/api/novels/' + this.props.novelId)
+      .then((response) => {
+        //console.log(response.data.Chapters);
+        this.setState({ chapters: response.data.Chapters });
+      });
     //this.setState({ chapters: this.props.chapterlist });
   }
 

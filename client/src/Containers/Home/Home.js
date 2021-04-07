@@ -23,3 +23,5 @@ class Home extends Component {
 }
 
 export default Home;
+
+// style={{ backgroundColor: '#7687A1' }}

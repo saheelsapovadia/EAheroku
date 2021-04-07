@@ -16,15 +16,16 @@ import NovelPage from '../Admin/Novel/NovelPage';
 import AddChapter from '../Admin/AddChapter';
 import Footer from '../../Components/Footer/Footer';
 import ScrollToTop from '../../utils/ScrollToTop';
+import NotFound from '../NotFound/NotFound';
 class Layout extends Component {
   componentDidMount() {
     if (localStorage.getItem('userToken') !== null) {
-      console.log('auto logging...');
+      console.log('auto logging...', localStorage.getItem('userToken'));
       this.props.userLogin(localStorage.getItem('userToken'));
     }
   }
   render() {
-    //console.log('Layout Component');
+    console.log('Layout Component');
     // if (localStorage.getItem('userToken') !== null) {
     //   this.props.userLogin(localStorage.getItem('userToken'));
     // }
@@ -39,14 +40,15 @@ class Layout extends Component {
           {/* <ProtectedRoute path='/profile' component={Profile} /> */}
           <Route path='/profile' exact component={Profile}></Route>
           <Route path='/login' exact component={Auth}></Route>
-          <Route path='/postnovel' exact component={AddNovel}></Route>
-          <Route path='/allnovels' exact component={AllNovels}></Route>
-          <Route path='/adminnovels/:id' exact component={NovelPage}></Route>
+          <Route path='/admin/postnovel' exact component={AddNovel}></Route>
+          <Route path='/admin/novels' exact component={AllNovels}></Route>
+          <Route path='/admin/novels/:id' exact component={NovelPage}></Route>
           <Route
-            path='/addchapter/:novelId'
+            path='/admin/addchapter/:novelId'
             exact
             component={AddChapter}
           ></Route>
+          <Route component={NotFound}></Route>
         </Switch>
         <Footer />
       </Aux>
