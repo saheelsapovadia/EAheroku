@@ -39,7 +39,10 @@ router.get(
   /*ensureAuth, ensureAdmin,*/ (req, res) => {
     Novel.findById(req.params.id)
       .populate('Chapters', ['no', 'title'])
-      .then((novel) => res.json(novel))
+      .then((novel) => {
+        if (novel) res.json(novel);
+        else res.json({ msg: 'no novel found' });
+      })
       .catch((err) => {
         if (err.kind === 'ObjectId') {
           res.status(404).json({ nonovelfound: 'No novel found with that ID' });
@@ -53,7 +56,8 @@ router.get(
 // @access  Private
 router.post(
   '/',
-  //  ensureAuth,
+  ensureAuth,
+  ensureAdmin,
 
   (req, res) => {
     //const { errors, isValid } = validatePostInput(req.body);
@@ -78,7 +82,12 @@ router.post(
 // @route   POST /novels/:novelId/addchapter
 // @desc    Create chapter
 // @access  Private
-router.post('/:novelId/addchapter', chapterRoutes.addChapter);
+router.post(
+  '/:novelId/addchapter',
+  ensureAuth,
+  ensureAdmin,
+  chapterRoutes.addChapter
+);
 
 // @route   GET novels/:novelId/:chapterId
 // @desc    Get chapter by id from novel by id
