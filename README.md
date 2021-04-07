@@ -1,4 +1,5 @@
-# EAbackend
+# EAheroku
 
-Discord Server - S4vvy's Server
-API Endpoints
+--**authorised personel only**--
+
+Welcome to EA tls original code base.
