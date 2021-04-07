@@ -1,56 +1,114 @@
 import React, { Component } from 'react';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import { Container, Col, Row } from 'react-bootstrap';
-import { FaInstagram, FaFacebook, FaTwitter } from 'react-icons/fa';
+import { FaInstagram, FaFacebook, FaDiscord } from 'react-icons/fa';
+import './footer.scss';
 class Footer extends Component {
   render() {
     return (
-      <Jumbotron className="mb-0 pb-0" style={{ backgroundColor: '#7687A1' }}>
-        <h2 className="text-center">Euphoria Airline TLs</h2>
-        <Container>
-          <Row>
-            <Col sm>
-              <img src="EA-Logo.png" class="img-fluid" alt="Responsive "></img>
-            </Col>
-            <Col sm>
-              Overview
-              <ul style={{ listStyle: 'none' }}>
-                <li>Library</li>
-                <li>Completed</li>
-                <li>Ongoing</li>
-                <li>Dropped</li>
-              </ul>
-            </Col>
-            <Col sm>
-              Community
-              <ul style={{ listStyle: 'none' }}>
-                <li>Staff</li>
-                <li>Forum</li>
-                <li>Contact</li>
-                <li>Support</li>
-              </ul>
-            </Col>
-            <Col sm>
+      <footer>
+        <div class='container'>
+          <div class='row'>
+            <div class='col-md-4 footer-column'>
               <img
-                src="DiscordFullLogo.png"
-                class="img-fluid"
-                alt="Responsive "
+                src='EA-Logo-edit.png'
+                className='ealogo img-fluid'
+                alt='EA Logo'
               ></img>
-              <Row className="my-5 ">
-                <Col>
-                  <FaInstagram />
-                </Col>
-                <Col>
-                  <FaFacebook />
-                </Col>
-                <Col>
-                  <FaTwitter />
-                </Col>
-              </Row>
-            </Col>
-          </Row>
-        </Container>
-      </Jumbotron>
+            </div>
+            <div class='col-md-4 footer-column'>
+              <ul class='nav flex-column'>
+                <li class='nav-item'>
+                  <span class='footer-title'>Overview</span>
+                </li>
+                <li class='nav-item'>
+                  <a class='nav-link' href='#'>
+                    Library
+                  </a>
+                </li>
+                <li class='nav-item'>
+                  <a class='nav-link' href='#'>
+                    Completed
+                  </a>
+                </li>
+                <li class='nav-item'>
+                  <a class='nav-link' href='#'>
+                    Ongoing
+                  </a>
+                </li>
+                <li class='nav-item'>
+                  <a class='nav-link' href='#'>
+                    Dropped
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class='col-md-4 footer-column'>
+              <ul class='nav flex-column'>
+                <li class='nav-item'>
+                  <span class='footer-title'>Community</span>
+                </li>
+                <li class='nav-item'>
+                  <a class='nav-link' href='#'>
+                    <i class='fas fa-comments'></i>Staff
+                  </a>
+                </li>
+                <li class='nav-item'>
+                  <a class='nav-link' href='#'>
+                    <i class='fas fa-comments'></i>Tech
+                  </a>
+                </li>
+                <li class='nav-item'>
+                  <a class='nav-link' href='#'>
+                    <i class='fas fa-envelope'></i>Contact us
+                  </a>
+                </li>
+                <li class='nav-item'>
+                  <a class='nav-link' href='#'>
+                    <i class='fas fa-star'></i>Support
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class='text-center'>
+            <i class='fas fa-ellipsis-h'></i>
+          </div>
+
+          <div class='row text-center'>
+            <div class='col-md-4 box'>
+              <span class='copyright quick-links'>
+                Copyright &copy; eatranslations.com
+                <script>document.write(new Date().getFullYear())</script>
+              </span>
+            </div>
+            <div class='col-md-4 box'>
+              <ul class='list-inline social-buttons'>
+                <a href='#'>
+                  <FaFacebook size='2em' style={{ marginLeft: '10px' }} />
+                </a>
+                <a href='#'>
+                  <FaDiscord size='2em' style={{ marginLeft: '10px' }} />
+                </a>
+                <a href='#'>
+                  <FaInstagram size='2em' style={{ marginLeft: '10px' }} />
+                </a>
+              </ul>
+            </div>
+            <div class='col-md-4 box'>
+              <ul class='list-inline quick-links'>
+                <li class='list-inline-item'>
+                  <a href='#'>Privacy Policy</a>
+                </li>
+                <li class='list-inline-item'>
+                  <a href='#'>Terms of Use</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
     );
   }
 }
