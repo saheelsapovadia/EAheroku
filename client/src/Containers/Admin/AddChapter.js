@@ -34,10 +34,7 @@ class AddChapter extends Component {
     //   )
     axios({
       method: 'post',
-      url:
-        'http://localhost:5000/api/novels/' +
-        this.props.match.params.novelId +
-        '/addchapter',
+      url: '/api/novels/' + this.props.match.params.novelId + '/addchapter',
       data: {
         title: this.state.title,
         no: this.state.no,

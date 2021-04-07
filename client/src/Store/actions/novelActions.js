@@ -4,7 +4,7 @@ import axios from 'axios';
 export const getNovelById = (id) => {
   let novel;
   return (dispatch) => {
-    axios.get('http://localhost:5000/api/novels/' + id).then((response) => {
+    axios.get('/api/novels/' + id).then((response) => {
       console.log(response.data);
       novel = response.data;
       //console.log(this.state.novelinfo);

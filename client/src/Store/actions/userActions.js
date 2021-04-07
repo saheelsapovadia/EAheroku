@@ -3,7 +3,7 @@ import axios from 'axios';
 export const userLogin = (token, history) => {
   return (dispatch) => {
     axios
-      .post('http://localhost:5000/api/auth/checkToken', { body: token })
+      .post('/api/auth/checkToken', { body: token })
       .then((user) => {
         console.log('getUser');
         localStorage.setItem('userToken', token);
@@ -27,7 +27,7 @@ export const userLogout = (token) => {
 export const addBookmark = (userId, novelId) => {
   return (dispatch) => {
     axios
-      .post('http://localhost:5000/api/users/' + userId + '/addbookmark', {
+      .post('/api/users/' + userId + '/addbookmark', {
         novelId: novelId,
       })
       .then(function (response) {
@@ -43,7 +43,7 @@ export const addBookmark = (userId, novelId) => {
 export const removeBookmark = (userId, novelId) => {
   return (dispatch) => {
     axios
-      .post('http://localhost:5000/api/users/' + userId + '/removebookmark', {
+      .post('/api/users/' + userId + '/removebookmark', {
         novelId: novelId,
       })
       .then(function (response) {

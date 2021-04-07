@@ -12,7 +12,7 @@ class AllNovels extends Component {
 
   componentDidMount() {
     axios
-      .get('http://localhost:5000/api/novels/', {
+      .get('/api/novels/', {
         // headers: { 'X-Auth-Token': localStorage.getItem('userToken') },
       })
       .then((response) => {

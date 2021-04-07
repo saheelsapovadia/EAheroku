@@ -17,7 +17,7 @@ class AddNovel extends Component {
   postNovel = () => {
     console.log('posting..');
     axios
-      .post('http://localhost:5000/novels/', {
+      .post('/api/novels/', {
         title: this.state.title,
         author: this.state.author,
         image: this.state.image,

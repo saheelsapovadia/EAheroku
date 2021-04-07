@@ -18,7 +18,7 @@ class ChapterPage extends Component {
   componentDidMount() {
     axios
       .get(
-        'http://localhost:5000/api/novels/' +
+        '/api/novels/' +
           this.props.match.params.id +
           '/' +
           this.props.match.params.no
@@ -37,25 +37,25 @@ class ChapterPage extends Component {
     return (
       <Aux>
         <Container>
-          <Row className="ml-auto">
-            <Button className="mr-2" variant="primary">
+          <Row className='ml-auto'>
+            <Button className='mr-2' variant='primary'>
               <AiFillCaretLeft />
               Prev
             </Button>
-            <Button className="mr-2" variant="primary">
+            <Button className='mr-2' variant='primary'>
               <AiFillCaretRight />
               Next
             </Button>
           </Row>
-          <h3 className="mt-3 px-3">{this.state.chapter.title}</h3>
+          <h3 className='mt-3 px-3'>{this.state.chapter.title}</h3>
           {/* <ToolBar></ToolBar> */}
           <div dangerouslySetInnerHTML={this.createMarkup()}></div>
           <Row>
-            <Button className="mr-2" variant="primary">
+            <Button className='mr-2' variant='primary'>
               <AiFillCaretLeft />
               Prev
             </Button>
-            <Button className="mr-2" variant="primary">
+            <Button className='mr-2' variant='primary'>
               <AiFillCaretRight />
               Next
             </Button>
