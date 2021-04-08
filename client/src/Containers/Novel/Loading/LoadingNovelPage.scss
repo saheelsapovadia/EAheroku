@@ -1,0 +1,65 @@
+.loading-novelpage {
+  .image,
+  .title,
+  .mn,
+  .lrg,
+  .summary-title,
+  .text {
+    background: #eee;
+    background: linear-gradient(
+      110deg,
+      #e7e7e7 30%,
+      #e7e7e7 10%,
+      #eee 39%,
+      #e7e7e7 48%
+    );
+    border-radius: 5px;
+    background-size: 200% 100%;
+    animation: 1.5s shine linear infinite;
+  }
+  .image {
+    margin-top: 20px;
+    margin-left: 25%;
+    height: 250px;
+    width: 55%;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .row {
+    margin-top: 15px;
+  }
+  .title {
+    margin-top: 10px;
+    height: 30px;
+    width: 60%;
+    margin-left: 4%;
+  }
+  .mn {
+    height: 25px;
+    width: 60%;
+  }
+  .lrg {
+    height: 25px;
+    width: 60%;
+  }
+  .summary-title {
+    margin-top: 2em;
+    height: 25px;
+    width: 40%;
+  }
+  .text {
+    height: 25px;
+    width: 90%;
+  }
+}
+@keyframes shine {
+  to {
+    background-position-x: -200%;
+  }
+}
+
+@keyframes shine {
+  to {
+    background-position-x: -200%;
+  }
+}

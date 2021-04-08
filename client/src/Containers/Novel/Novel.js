@@ -8,6 +8,7 @@ import ChapterList from '../../Components/Novel/ChapterList';
 import Container from 'react-bootstrap/Container';
 import * as actions from '../../Store/actions/index';
 import { addBookmark } from '../../Store/actions/userActions';
+import LoadingNovelPage from './Loading/LoadingNovelPage';
 
 class Novel extends Component {
   state = {
@@ -15,6 +16,7 @@ class Novel extends Component {
       title: '',
     },
     bookmark: false,
+    isLoading: true,
   };
 
   async componentDidMount() {
@@ -22,6 +24,7 @@ class Novel extends Component {
     axios.get('/api/novels/' + this.props.match.params.id).then((response) => {
       //console.log(response);
       this.setState({ novelinfo: response.data });
+      this.setState({ isLoading: false });
       //console.log(this.state.novelinfo);
     });
     //checking bookmark status
@@ -101,23 +104,27 @@ class Novel extends Component {
   render() {
     console.log('Novel Component');
     console.log(this.state);
-    return (
-      <Aux>
-        <Container>
-          <h3 className='px-4 mb-5 mt-3'>{this.state.novelinfo.title} </h3>
-          <NovelInfo
-            novelInfo={this.state.novelinfo}
-            isBookmarked={this.state.bookmark}
-            toggle={() => this.toggleBookMark()}
-          ></NovelInfo>
-          <Summary summary={this.state.novelinfo.synopsis}></Summary>
-          <ChapterList
-            chapterlist={this.state.novelinfo.Chapters}
-            novelId={this.props.match.params.id}
-          ></ChapterList>
-        </Container>
-      </Aux>
-    );
+    if (this.state.isLoading) {
+      return <LoadingNovelPage></LoadingNovelPage>;
+    } else {
+      return (
+        <Aux>
+          <Container>
+            <h3 className='px-4 mb-5 mt-3'>{this.state.novelinfo.title} </h3>
+            <NovelInfo
+              novelInfo={this.state.novelinfo}
+              isBookmarked={this.state.bookmark}
+              toggle={() => this.toggleBookMark()}
+            ></NovelInfo>
+            <Summary summary={this.state.novelinfo.synopsis}></Summary>
+            <ChapterList
+              chapterlist={this.state.novelinfo.Chapters}
+              novelId={this.props.match.params.id}
+            ></ChapterList>
+          </Container>
+        </Aux>
+      );
+    }
   }
 }
 

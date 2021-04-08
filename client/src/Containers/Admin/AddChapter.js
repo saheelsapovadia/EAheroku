@@ -18,7 +18,7 @@ class AddChapter extends Component {
 
   postChapter = () => {
     console.log('posting chapter...');
-    console.log('userToken', localStorage.getItem('userToken'));
+    //console.log('userToken', localStorage.getItem('userToken'));
 
     // axios
     //   .post(
@@ -135,9 +135,6 @@ class AddChapter extends Component {
               </Button>
             </div>
           </Form>
-          <div>{this.state.no}</div>
-          <div>{this.state.title}</div>
-          <div>{this.state.content}</div>
 
           <Modal show={this.state.show} onHide={this.handleClose}>
             <Modal.Header closeButton>

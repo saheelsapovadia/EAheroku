@@ -17,16 +17,17 @@ class ChapterPage extends Component {
     chapter: {},
     chapterNo: 0,
     wrongChapter: false,
+    fontSize: 1,
   };
   componentDidMount() {
-    console.log('component mounted');
+    //console.log('component mounted');
     this.setState({ chapterNo: parseInt(this.props.match.params.no) });
-    console.log(
-      'novelid: ',
-      this.props.match.params.id,
-      'chapterno: ',
-      this.props.match.params.no
-    );
+    // console.log(
+    //   'novelid: ',
+    //   this.props.match.params.id,
+    //   'chapterno: ',
+    //   this.props.match.params.no
+    // );
     axios
       .get(
         '/api/novels/' +
@@ -36,7 +37,7 @@ class ChapterPage extends Component {
       )
       .then((response) => {
         if (response.data) {
-          console.log(response.data[0]);
+          //console.log(response.data[0]);
           this.setState({ chapter: response.data[0] });
         } else this.setState({ wrongChapter: true });
       });
@@ -92,15 +93,27 @@ class ChapterPage extends Component {
       alert('no previous chapter');
     }
   };
-
+  incrementSize = async () => {
+    console.log('incrementing..');
+    if (this.state.fontSize < 2) {
+      await this.setState({ fontSize: this.state.fontSize + 0.2 });
+    }
+  };
+  decrementSize = async () => {
+    console.log('decrementing..');
+    if (this.state.fontSize > 1.0) {
+      await this.setState({ fontSize: this.state.fontSize - 0.2 });
+    }
+  };
   render() {
-    console.log('chapter no', this.state.chapterNo);
+    //console.log('chapter no', this.state.chapterNo);
+    const { fontSize } = this.state;
     if (this.state.wrongChapter) {
       return <NotFound></NotFound>;
     } else {
       return (
         <Aux>
-          <Container>
+          <Container style={{ fontSize: fontSize + 'em' }}>
             <Row className='ml-auto'>
               <Button
                 className='mr-2'
@@ -120,7 +133,10 @@ class ChapterPage extends Component {
               </Button>
             </Row>
             <h3 className='mt-3 px-3'>{this.state.chapter.title}</h3>
-            {/* <ToolBar></ToolBar> */}
+            <ToolBar
+              inc={this.incrementSize}
+              dec={this.decrementSize}
+            ></ToolBar>
             <div dangerouslySetInnerHTML={this.createMarkup()}></div>
             <Row>
               <Button
@@ -148,11 +164,11 @@ class ChapterPage extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {};
-};
-const mapDispatchToProps = (dispatch) => {
-  return {};
-};
+// const mapStateToProps = (state) => {
+//   return {};
+// };
+// const mapDispatchToProps = (dispatch) => {
+//   return {};
+// };
 
 export default withRouter(ChapterPage);
