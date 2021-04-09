@@ -17,6 +17,8 @@ import AddChapter from '../Admin/AddChapter';
 import Footer from '../../Components/Footer/Footer';
 import ScrollToTop from '../../utils/ScrollToTop';
 import NotFound from '../NotFound/NotFound';
+import Aboutus from '../AboutUs/Aboutus';
+import ContactUs from '../ContactUs/ContactUs';
 class Layout extends Component {
   componentDidMount() {
     if (localStorage.getItem('userToken') !== null) {
@@ -35,6 +37,8 @@ class Layout extends Component {
         <Navbar></Navbar>
         <Switch>
           <Route path='/' exact component={Home}></Route>
+          <Route path='/aboutus' exact component={Aboutus}></Route>
+          <Route path='/contactus' exact component={ContactUs}></Route>
           <Route path='/novels/:id' exact component={Novel}></Route>
           <Route path='/novels/:id/:no' exact component={Chapter}></Route>
           {/* <ProtectedRoute path='/profile' component={Profile} /> */}

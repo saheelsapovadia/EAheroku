@@ -37,7 +37,8 @@ class NavbarMain extends Component {
         links: [
           { href: '/', text: 'Get Started' },
           { href: '/', text: 'Library' },
-          { href: '/', text: 'About Us' },
+          { href: '/aboutus', text: 'About Us' },
+          { href: '/contactus', text: 'Contact Us' },
         ],
       });
     } else {
@@ -45,7 +46,8 @@ class NavbarMain extends Component {
         links: [
           { href: '/', text: 'Get Started' },
           { href: '/', text: 'Library' },
-          { href: '/', text: 'About Us' },
+          { href: '/aboutus', text: 'About Us' },
+          { href: '/contactus', text: 'Contact Us' },
         ],
       });
     }
@@ -57,7 +59,8 @@ class NavbarMain extends Component {
           links: [
             { href: '/', text: 'Get Started' },
             { href: '/', text: 'Library' },
-            { href: '/', text: 'About Us' },
+            { href: '/aboutus', text: 'About Us' },
+            { href: '/contactus', text: 'Contact Us' },
 
             // { href: '/profile', text: 'Profile' },
           ],
@@ -67,7 +70,8 @@ class NavbarMain extends Component {
           links: [
             { href: '/', text: 'Get Started' },
             { href: '/', text: 'Library' },
-            { href: '/', text: 'About Us' },
+            { href: '/aboutus', text: 'About Us' },
+            { href: '/contactus', text: 'Contact Us' },
           ],
         });
       }
@@ -87,14 +91,16 @@ class NavbarMain extends Component {
       let links = [
         { href: '/', text: 'Get Started' },
         { href: '/', text: 'Library' },
-        { href: '/', text: 'About Us' },
+        { href: '/aboutus', text: 'About Us' },
+        { href: '/contactus', text: 'Contact Us' },
         // { href: '/profile', text: 'Profile' },
       ];
     } else {
       let links = [
         { href: '/', text: 'Get Started' },
         { href: '/', text: 'Library' },
-        { href: '/', text: 'About Us' },
+        { href: '/aboutus', text: 'About Us' },
+        { href: '/contactus', text: 'Contact Us' },
       ];
     }
     return (
