@@ -135,12 +135,12 @@ class CarouselMain extends Component {
           <CardDeck>
             <Card
               style={{ width: '15rem', margin: '2rem' }}
-              onClick={novel.clicked}
-              className="carousel"
+              onClick={() => this.novelSelectedHandler(novel._id)}
+              className='carousel'
             >
-              <Card.Img className="carousel-img" src={novel.image} />
+              <Card.Img className='carousel-img' src={novel.image} />
 
-              <Card.Body className="carousel-body">{novel.title}</Card.Body>
+              <Card.Body className='carousel-body'>{novel.title}</Card.Body>
             </Card>
           </CardDeck>
         );
