@@ -143,7 +143,9 @@ class ChapterPage extends Component {
                 Next
               </Button>
             </Row>
-            <h3 className='mt-3 px-3'>{this.state.chapter.title}</h3>
+            <h3 className='mt-3 px-3'>
+              {this.state.chapter.no}- {this.state.chapter.title}
+            </h3>
             <ToolBar
               inc={this.incrementSize}
               dec={this.decrementSize}

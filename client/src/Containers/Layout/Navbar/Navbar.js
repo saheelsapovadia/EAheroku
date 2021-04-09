@@ -157,10 +157,17 @@ class NavbarMain extends Component {
                   className='navdropdown'
                 >
                   <NavDropdown.Item>
-                    <Link to='/admin/novels'>All Novels</Link>
+                    <Link to='/admin/novels' onClick={() => this.setExpanded()}>
+                      All Novels
+                    </Link>
                   </NavDropdown.Item>
                   <NavDropdown.Item>
-                    <Link to='/admin/postnovel'>Post Novels</Link>
+                    <Link
+                      to='/admin/postnovel'
+                      onClick={() => this.setExpanded()}
+                    >
+                      Post Novels
+                    </Link>
                   </NavDropdown.Item>
                 </NavDropdown>
               ) : (
@@ -170,7 +177,11 @@ class NavbarMain extends Component {
 
             <Nav className='ml-auto navbar' navbar>
               <Nav.Item>
-                <Nav.Link href='#discord' className='navlink'>
+                <Nav.Link
+                  href='https://discord.gg/8uESkwvzbe'
+                  className='navlink'
+                  onClick={() => this.setExpanded()}
+                >
                   <Button variant='outline-light'>
                     <img
                       height={25}
@@ -184,16 +195,9 @@ class NavbarMain extends Component {
               </Nav.Item>
               {this.props.isSignedIn ? (
                 <Nav.Item>
-                  <Nav.Link>
+                  <Nav.Link onClick={() => this.setExpanded()}>
                     <Link to='/profile'>
                       <Button variant='outline-light'>
-                        <img
-                          height={25}
-                          width={40}
-                          src='google.svg'
-                          alt='Login'
-                        />
-
                         <img
                           src={this.props.user.image}
                           style={{
@@ -209,7 +213,7 @@ class NavbarMain extends Component {
               ) : (
                 <Nav.Item>
                   <Nav.Link>
-                    <Link to='/login'>
+                    <Link onClick={() => this.setExpanded()} to='/login'>
                       <Button variant='outline-light'>
                         <img
                           height={25}
