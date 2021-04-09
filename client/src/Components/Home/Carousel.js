@@ -4,17 +4,17 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import withRouter from 'react-router-dom/withRouter';
-import Container from 'react-bootstrap/Container';
+import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Novel from './Latest/NovelCard';
-import './Carousel.css';
+import './Carousel.scss';
 import LoadingNovelCard from '../Loading/LoadingNovelCard';
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
   return (
     <div
       className={className}
-      style={{ ...style, display: 'block', background: 'black' }}
+      style={{ ...style, display: 'block', background: '#e1e7f0' }}
       onClick={onClick}
     />
   );
@@ -25,7 +25,7 @@ function SamplePrevArrow(props) {
   return (
     <div
       className={className}
-      style={{ ...style, display: 'block', background: 'black' }}
+      style={{ ...style, display: 'block', background: '#e1e7f0' }}
       onClick={onClick}
     />
   );
@@ -128,8 +128,18 @@ class CarouselMain extends Component {
             title={novel.title}
             author={novel.author}
             image={novel.image}
+            className="carousel"
             clicked={() => this.novelSelectedHandler(novel._id)}
           />
+
+          // <Card
+          //   //style={{ width: '15rem', margin: '2rem' }}
+          //   onClick={novel.clicked}
+          // >
+          //   <Card.Img src={novel.image} />
+
+          //   <Card.Body className="px-2">{novel.title}</Card.Body>
+          // </Card>
         );
       });
     }

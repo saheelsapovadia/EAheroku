@@ -8,8 +8,11 @@ class Summary extends Component {
   render() {
     return (
       <Aux>
-        <h3 className='mt-5 px-4'>Summary</h3>
-        <div dangerouslySetInnerHTML={this.createMarkup()}></div>
+        <h3 className="mt-5 px-4">Summary</h3>
+        <div
+          className="mt-5 px-4"
+          dangerouslySetInnerHTML={this.createMarkup()}
+        ></div>
       </Aux>
     );
   }

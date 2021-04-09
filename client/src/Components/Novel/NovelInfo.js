@@ -31,58 +31,58 @@ class NovelInfo extends Component {
               alignContent: 'center',
             }}
           >
-            <img src={this.props.novelInfo.image} alt='Novel Preview'></img>
+            <img src={this.props.novelInfo.image} alt="Novel Preview"></img>
           </Col>
           <Col sm={8}>
             <Row>
-              <Col className=''>
-                <Row className='mx-0 px-0 mb-2'>
-                  <Col className='' sm={4}>
-                    <FaTrophy className='mr-2' />
+              <Col className="">
+                <Row className="mx-0 px-0 mb-2">
+                  <Col className="" sm={4}>
+                    <FaTrophy className="mr-2" />
                     <strong>Rank</strong>
                   </Col>
-                  <Col className='' sm={8}>
+                  <Col className="" sm={8}>
                     #1
                   </Col>
                 </Row>
-                <Row className='mx-0 px-0 mb-2'>
-                  <Col className='' sm={4}>
-                    <FaPenNib className='mr-2' />
+                <Row className="mx-0 px-0 mb-2">
+                  <Col className="" sm={4}>
+                    <FaPenNib className="mr-2" />
                     <strong>Author</strong>
                   </Col>
-                  <Col className='' sm={8}>
+                  <Col className="" sm={8}>
                     {this.props.novelInfo.author}
                   </Col>
                 </Row>
-                <Row className='mx-0 px-0 mb-2'>
-                  <Col className='' sm={4}>
-                    <BsFillCollectionFill className='mr-2' />
+                {/* <Row className="mx-0 px-0 mb-2">
+                  <Col className="" sm={4}>
+                    <BsFillCollectionFill className="mr-2" />
                     <strong>Genre</strong>
                   </Col>
-                  <Col className='' sm={8}>
+                  <Col className="" sm={8}>
                     {this.props.novelInfo.genre}
                   </Col>
-                </Row>
-                <Row className='mx-0 px-0 mb-2'>
-                  <Col className='' sm={4}>
-                    <MdDateRange className='mr-2' />
+                </Row> */}
+                <Row className="mx-0 px-0 mb-2">
+                  <Col className="" sm={4}>
+                    <MdDateRange className="mr-2" />
                     <strong>Date</strong>
                   </Col>
-                  <Col className='' sm={8}>
+                  <Col className="" sm={8}>
                     {this.props.novelInfo.date}
                   </Col>
                 </Row>
               </Col>
-              <Col className=''>
-                <Row className=''>
-                  <Col className='' sm={4}>
+              <Col className="">
+                <Row className="">
+                  <Col className="" sm={4}>
                     Project:
                   </Col>
-                  <Col className='' sm={8}>
+                  <Col className="" sm={8}>
                     Active
                   </Col>
                 </Row>
-                <a className='mr-2' onClick={this.props.toggle}>
+                <a className="mr-2" onClick={this.props.toggle}>
                   {bookmark}
                 </a>
               </Col>

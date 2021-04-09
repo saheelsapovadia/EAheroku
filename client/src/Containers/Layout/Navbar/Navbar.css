@@ -30,3 +30,26 @@
   border-bottom: 4px solid white;
   padding: 6px 0;
 }
+
+.navdropdown > a {
+  color: aliceblue;
+  position: relative;
+
+  transition: 0.3s ease;
+  background: #1b3254;
+  color: aliceblue;
+  font-size: 20px;
+  text-decoration: none;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  padding: 20px 0;
+  margin: 0 5px;
+  font-size: 17px;
+}
+
+.navdropdown > a:hover {
+  color: #f8ece4;
+  border-top: 4px solid white;
+  border-bottom: 4px solid white;
+  padding: 6px 0;
+}
