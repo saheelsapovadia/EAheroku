@@ -10,11 +10,13 @@ import Button from 'react-bootstrap/Button';
 import * as actions from '../../../Store/actions/index';
 //import { addBookmark } from '../../Store/actions/userActions';
 import { AiOutlinePlus } from 'react-icons/ai';
+import LoadingNovelPage from '../../Novel/Loading/LoadingNovelPage';
 class NovelPage extends Component {
   state = {
     novelinfo: {
       title: '',
     },
+    isLoading: true,
   };
 
   async componentDidMount() {
@@ -22,6 +24,7 @@ class NovelPage extends Component {
     axios.get('/api/novels/' + this.props.match.params.id).then((response) => {
       //console.log(response);
       this.setState({ novelinfo: response.data });
+      this.setState({ isLoading: false });
       //console.log(this.state.novelinfo);
     });
     //checking bookmark status
@@ -105,36 +108,40 @@ class NovelPage extends Component {
   render() {
     console.log('Novel Component');
     console.log(this.state);
-    if (this.props.userRole !== 'admin') {
-      return (
-        <Aux>
-          <h2>Oops you are not an ADMIN!</h2>
-        </Aux>
-      );
+    if (this.state.isLoading) {
+      return <LoadingNovelPage></LoadingNovelPage>;
     } else {
-      return (
-        <Aux>
-          <Container>
-            <h3 className='px-4 mb-5 mt-3'>{this.state.novelinfo.title} </h3>
-            <NovelInfo
-              novelInfo={this.state.novelinfo}
-              toggle={() => this.toggleBookMark()}
-            ></NovelInfo>
-            <Summary summary={this.state.novelinfo.synopsis}></Summary>
-            <ChapterList
-              chapterlist={this.state.novelinfo.Chapters}
-              novelId={this.props.match.params.id}
-            ></ChapterList>
+      if (this.props.userRole !== 'admin') {
+        return (
+          <Aux>
+            <h2>Oops you are not an ADMIN!</h2>
+          </Aux>
+        );
+      } else {
+        return (
+          <Aux>
+            <Container>
+              <h3 className='px-4 mb-5 mt-3'>{this.state.novelinfo.title} </h3>
+              <NovelInfo
+                novelInfo={this.state.novelinfo}
+                toggle={() => this.toggleBookMark()}
+              ></NovelInfo>
+              <Summary summary={this.state.novelinfo.synopsis}></Summary>
+              <ChapterList
+                chapterlist={this.state.novelinfo.Chapters}
+                novelId={this.props.match.params.id}
+              ></ChapterList>
 
-            <Button
-              onClick={() => this.addChapter(this.props.match.params.id)}
-              variant='link'
-            >
-              <AiOutlinePlus /> Chapter
-            </Button>
-          </Container>
-        </Aux>
-      );
+              <Button
+                onClick={() => this.addChapter(this.props.match.params.id)}
+                variant='link'
+              >
+                <AiOutlinePlus /> Chapter
+              </Button>
+            </Container>
+          </Aux>
+        );
+      }
     }
   }
 }

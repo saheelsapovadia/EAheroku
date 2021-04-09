@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Aux from '../../hoc/Auxiliary';
 import Form from 'react-bootstrap/Form';
+import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import { Editor } from '@tinymce/tinymce-react';
 import axios from 'axios';
@@ -11,26 +12,50 @@ class AddNovel extends Component {
     author: '',
     image: '',
     synopsis: '',
+    show: false,
+    newNovelId: '',
   };
   componentDidMount() {}
 
   postNovel = () => {
     console.log('posting..');
-    axios
-      .post('/api/novels/', {
+    // axios
+    //   .post('/api/novels/', {
+    //     title: this.state.title,
+    //     author: this.state.author,
+    //     image: this.state.image,
+    //     synopsis: this.state.synopsis,
+    //     header: { 'X-Auth-Token': localStorage.getItem('userToken') },
+    //   })
+    //   .then((response) => {
+    //     //console.log('new novel: ', response);
+    //     this.handleShow();
+    //   })
+    //   .catch((error) => {
+    //     //console.log(error);
+    //   });
+    axios({
+      method: 'post',
+      url: '/api/novels/',
+      data: {
         title: this.state.title,
         author: this.state.author,
         image: this.state.image,
         synopsis: this.state.synopsis,
-        header: { 'X-Auth-Token': localStorage.getItem('userToken') },
-      })
+      },
+      headers: { 'X-Auth-Token': localStorage.getItem('userToken') },
+    })
       .then((response) => {
         //console.log('new novel: ', response);
+        //console.log(response.data._id);
+        this.setState({ newNovelId: response.data._id });
+        this.handleShow();
       })
       .catch((error) => {
         //console.log(error);
       });
   };
+
   handleEditorChange = (content, editor) => {
     //console.log('Content was updated:', content);
     this.setState({ synopsis: content });
@@ -43,7 +68,17 @@ class AddNovel extends Component {
     if (type == 'author') this.setState({ author: event.target.value });
     if (type == 'image') this.setState({ image: event.target.value });
   };
-
+  handleClose = () => {
+    this.setState({ show: false });
+  };
+  handleShow = () => {
+    this.setState({ show: true });
+  };
+  handleRedirect = () => {
+    this.props.history.push({
+      pathname: '/novels/' + this.state.newNovelId,
+    });
+  };
   render() {
     if (this.props.userRole !== 'admin') {
       return (
@@ -114,11 +149,17 @@ class AddNovel extends Component {
               </Button>
             </div>
           </Form>
-
-          <div>{this.state.title}</div>
-          <div>{this.state.author}</div>
-          <div>{this.state.image}</div>
-          <div>{this.state.synopsis}</div>
+          <Modal show={this.state.show} onHide={this.handleClose}>
+            <Modal.Header closeButton>
+              <Modal.Title>hooraay!</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>Woohoo, Your Novel is Successfully Created!</Modal.Body>
+            <Modal.Footer>
+              <Button variant='primary' onClick={this.handleRedirect}>
+                View
+              </Button>
+            </Modal.Footer>
+          </Modal>
         </Aux>
       );
     }

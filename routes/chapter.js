@@ -6,7 +6,11 @@ exports.showChapter = (req, res, next) => {
     novelId: req.params.novelId,
     no: req.params.chapterId,
   })
-    .then((chapter) => res.json(chapter))
+    .then((chapter) => {
+      //console.log('chapter  : ', chapter);
+      if (chapter.length != 0) res.json(chapter);
+      else res.json(null);
+    })
     .catch((err) => {
       if (err.kind === 'ObjectId') {
         res.status(404).json({ nonovelfound: 'No novel found with that ID' });

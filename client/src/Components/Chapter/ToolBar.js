@@ -20,14 +20,20 @@ class ToolBar extends Component {
           style={{ display: 'grid', justifyContent: 'right' }}
         >
           <Row className='mb-3'>
-            <a className='mr-2' href='/'>
+            {/* <a className='mr-2' href='/'>
               <AiOutlinePlusCircle size={30} />
-            </a>
-            <a className='mr-2' href='/'>
+            </a> */}
+            <Button className='mr-2' variant='none' onClick={this.props.inc}>
+              <AiOutlinePlusCircle size={30} />
+            </Button>
+            <Button className='mr-2' variant='none' onClick={this.props.dec}>
               <AiOutlineMinusCircle size={30} />
-            </a>
+            </Button>
+            {/* <a className='mr-2' href='/' onClick>
+              <AiOutlineMinusCircle size={30} />
+            </a> */}
           </Row>
-          <Row>
+          {/* <Row>
             <Button className='mr-2' variant='primary'>
               <AiFillCaretLeft />
               Prev
@@ -36,7 +42,7 @@ class ToolBar extends Component {
               <AiFillCaretRight />
               Next
             </Button>
-          </Row>
+          </Row> */}
         </Container>
       </Aux>
     );
