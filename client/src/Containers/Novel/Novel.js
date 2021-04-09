@@ -6,6 +6,7 @@ import Summary from '../../Components/Novel/Summary';
 import { connect } from 'react-redux';
 import ChapterList from '../../Components/Novel/ChapterList';
 import Container from 'react-bootstrap/Container';
+import SupportUs from '../../Components/Home/supportus';
 import * as actions from '../../Store/actions/index';
 import { addBookmark } from '../../Store/actions/userActions';
 import LoadingNovelPage from './Loading/LoadingNovelPage';
@@ -130,6 +131,7 @@ class Novel extends Component {
               novelId={this.props.match.params.id}
             ></ChapterList>
             <br></br>
+            <SupportUs />
             <Disqus.DiscussionEmbed
               shortname={disqusShortname}
               config={disqusConfig}

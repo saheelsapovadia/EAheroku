@@ -9,7 +9,8 @@ import { AiFillCaretLeft, AiFillCaretRight } from 'react-icons/ai';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import NotFound from '../NotFound/NotFound';
-//import SupportUs from '../../components/home/supportus';
+import Disqus from 'disqus-react';
+import SupportUs from '../../Components/Home/supportus';
 //import * as actionTypes from '../../store/actions/actionTypes';
 
 class ChapterPage extends Component {
@@ -107,6 +108,16 @@ class ChapterPage extends Component {
   };
   render() {
     //console.log('chapter no', this.state.chapterNo);
+    const disqusShortname = 'eatranslations'; //found in your Disqus.com dashboard
+    const disqusConfig = {
+      url:
+        'https://lit-temple-67513.herokuapp.com/novels/' +
+        this.props.match.params.id +
+        '/' +
+        this.state.chapterNo,
+      identifier: this.props.match.params.id + this.state.chapterNo, //this.props.uniqueId
+      title: this.state.novelinfo?.title, //this.props.title
+    };
     const { fontSize } = this.state;
     if (this.state.wrongChapter) {
       return <NotFound></NotFound>;
@@ -156,7 +167,11 @@ class ChapterPage extends Component {
                 Next
               </Button>
             </Row>
-            {/* <SupportUs /> */}
+            <SupportUs />
+            <Disqus.DiscussionEmbed
+              shortname={disqusShortname}
+              config={disqusConfig}
+            />
           </Container>
         </Aux>
       );
