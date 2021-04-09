@@ -9,7 +9,7 @@ import Container from 'react-bootstrap/Container';
 import * as actions from '../../Store/actions/index';
 import { addBookmark } from '../../Store/actions/userActions';
 import LoadingNovelPage from './Loading/LoadingNovelPage';
-
+import Disqus from 'disqus-react';
 class Novel extends Component {
   state = {
     novelinfo: {
@@ -103,7 +103,15 @@ class Novel extends Component {
 
   render() {
     console.log('Novel Component');
-    console.log(this.state);
+    //console.log(this.state);
+    const disqusShortname = 'eatranslations'; //found in your Disqus.com dashboard
+    const disqusConfig = {
+      url:
+        'https://lit-temple-67513.herokuapp.com/novels/' +
+        this.props.match.params.id, //this.props.pageUrl
+      identifier: this.props.match.params.id, //this.props.uniqueId
+      title: this.state.novelinfo?.title, //this.props.title
+    };
     if (this.state.isLoading) {
       return <LoadingNovelPage></LoadingNovelPage>;
     } else {
@@ -121,6 +129,11 @@ class Novel extends Component {
               chapterlist={this.state.novelinfo.Chapters}
               novelId={this.props.match.params.id}
             ></ChapterList>
+            <br></br>
+            <Disqus.DiscussionEmbed
+              shortname={disqusShortname}
+              config={disqusConfig}
+            />
           </Container>
         </Aux>
       );

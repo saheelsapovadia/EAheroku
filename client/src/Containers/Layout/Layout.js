@@ -19,6 +19,7 @@ import ScrollToTop from '../../utils/ScrollToTop';
 import NotFound from '../NotFound/NotFound';
 import Aboutus from '../AboutUs/Aboutus';
 import ContactUs from '../ContactUs/ContactUs';
+import CommentPolicy from '../DisqusComment/CommentPolicy';
 class Layout extends Component {
   componentDidMount() {
     if (localStorage.getItem('userToken') !== null) {
@@ -37,6 +38,7 @@ class Layout extends Component {
         <Navbar></Navbar>
         <Switch>
           <Route path='/' exact component={Home}></Route>
+          <Route path='/comment-policy' exact component={CommentPolicy}></Route>
           <Route path='/aboutus' exact component={Aboutus}></Route>
           <Route path='/contactus' exact component={ContactUs}></Route>
           <Route path='/novels/:id' exact component={Novel}></Route>
