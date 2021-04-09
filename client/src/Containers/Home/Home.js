@@ -5,13 +5,14 @@ import Carousel from '../../Components/Home/Carousel/Carousel';
 import Latest from '../../Components/Home/Latest/Latest';
 import SupportUs from '../../Components/Home/supportus';
 import { Container } from 'react-bootstrap';
+import './Home.css';
 
 class Home extends Component {
   render() {
     return (
       <Aux>
-        <Container>
-          <Carousel></Carousel>
+        <Container className="set-padding">
+          <Carousel style={{ marginLeft: '10px' }}></Carousel>
           <main></main>
           <Top></Top>
           <Latest></Latest>
