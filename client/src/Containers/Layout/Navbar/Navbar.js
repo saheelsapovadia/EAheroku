@@ -12,13 +12,16 @@ import './Navbar.css';
 //   { href: '/profile', text: 'Profile' },
 // ];
 
-const createNavItem = ({ href, text, className }) => (
-  <Nav.Item key={text}>
-    <Nav.Link className="navlink">
-      <Link to={href}> {text}</Link>
-    </Nav.Link>
-  </Nav.Item>
-);
+// const createNavItem = ({ href, text, className }) => (
+//   <Nav.Item key={text}>
+//     <Nav.Link className='navlink'>
+//       <Link to={href} onClick={() => this.setExpanded()}>
+//         {' '}
+//         {text}
+//       </Link>
+//     </Nav.Link>
+//   </Nav.Item>
+// );
 
 class NavbarMain extends Component {
   constructor(props) {
@@ -27,6 +30,7 @@ class NavbarMain extends Component {
       key: 'home',
       links: [],
       user: {},
+      expanded: false,
     };
 
     this.handleSelect = this.handleSelect.bind(this);
@@ -77,6 +81,16 @@ class NavbarMain extends Component {
       }
     }
   }
+  createNavItem = ({ href, text, className }) => (
+    <Nav.Item key={text}>
+      <Nav.Link className='navlink'>
+        <Link to={href} onClick={() => this.setExpanded()}>
+          {' '}
+          {text}
+        </Link>
+      </Nav.Link>
+    </Nav.Item>
+  );
 
   handleSelect(key) {
     this.setState({
@@ -86,6 +100,9 @@ class NavbarMain extends Component {
   }
   checkSignedIn = () => {};
 
+  setExpanded = () => {
+    this.setState({ expanded: this.state.expanded ? false : 'expanded' });
+  };
   render() {
     if (this.props.isSignedIn) {
       let links = [
@@ -106,36 +123,44 @@ class NavbarMain extends Component {
     return (
       <div>
         {/* <Image src="panel.png" fluid></Image> */}
-        <Navbar className="navbar" expand="lg" fixed-top>
+        <Navbar
+          expanded={this.state.expanded}
+          className='navbar'
+          expand='lg'
+          fixed-top
+        >
           <Navbar.Brand>
-            <Link to="/" exact>
+            <Link to='/' exact>
               <img
-                src="EA-Logo-edit.png"
-                width="90"
-                height="70"
-                margin="none"
-                className="d-inline-block align-top"
-                alt="EA"
+                src='EA-Logo-edit.png'
+                width='90'
+                height='70'
+                margin='none'
+                className='d-inline-block align-top'
+                alt='EA'
                 style={{ margin: 'none' }}
               />
             </Link>
           </Navbar.Brand>
 
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="mr-auto" activeKey="/">
-              {this.state.links.map(createNavItem)}
+          <Navbar.Toggle
+            onClick={() => this.setExpanded()}
+            aria-controls='basic-navbar-nav'
+          />
+          <Navbar.Collapse id='basic-navbar-nav'>
+            <Nav className='mr-auto' activeKey='/'>
+              {this.state.links.map(this.createNavItem)}
               {this.props.isSignedIn && this.props.userRole === 'admin' ? (
                 <NavDropdown
-                  title="Admin Console"
-                  id="basic-nav-dropdown"
-                  className="navdropdown"
+                  title='Admin Console'
+                  id='basic-nav-dropdown'
+                  className='navdropdown'
                 >
                   <NavDropdown.Item>
-                    <Link to="/admin/novels">All Novels</Link>
+                    <Link to='/admin/novels'>All Novels</Link>
                   </NavDropdown.Item>
                   <NavDropdown.Item>
-                    <Link to="/admin/postnovel">Post Novels</Link>
+                    <Link to='/admin/postnovel'>Post Novels</Link>
                   </NavDropdown.Item>
                 </NavDropdown>
               ) : (
@@ -143,15 +168,15 @@ class NavbarMain extends Component {
               )}
             </Nav>
 
-            <Nav className="ml-auto navbar" navbar>
+            <Nav className='ml-auto navbar' navbar>
               <Nav.Item>
-                <Nav.Link href="#discord" className="navlink">
-                  <Button variant="outline-light">
+                <Nav.Link href='#discord' className='navlink'>
+                  <Button variant='outline-light'>
                     <img
                       height={25}
                       width={40}
-                      src="discord.svg"
-                      alt="Discord"
+                      src='discord.svg'
+                      alt='Discord'
                     />
                     Discord
                   </Button>
@@ -160,13 +185,13 @@ class NavbarMain extends Component {
               {this.props.isSignedIn ? (
                 <Nav.Item>
                   <Nav.Link>
-                    <Link to="/profile">
-                      <Button variant="outline-light">
+                    <Link to='/profile'>
+                      <Button variant='outline-light'>
                         <img
                           height={25}
                           width={40}
-                          src="google.svg"
-                          alt="Login"
+                          src='google.svg'
+                          alt='Login'
                         />
 
                         <img
@@ -184,13 +209,13 @@ class NavbarMain extends Component {
               ) : (
                 <Nav.Item>
                   <Nav.Link>
-                    <Link to="/login">
-                      <Button variant="outline-light">
+                    <Link to='/login'>
+                      <Button variant='outline-light'>
                         <img
                           height={25}
                           width={40}
-                          src="google.svg"
-                          alt="Login"
+                          src='google.svg'
+                          alt='Login'
                         />
                         Login
                       </Button>
