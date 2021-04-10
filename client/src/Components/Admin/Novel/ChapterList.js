@@ -19,7 +19,7 @@ class ChapterList extends Component {
 
   chapterSelectHandler = (no) => {
     this.props.history.push({
-      pathname: '/novels/' + this.props.novelId + '/' + no,
+      pathname: '/admin/novels/' + this.props.novelId + '/' + no,
     });
   };
 

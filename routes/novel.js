@@ -79,6 +79,55 @@ router.post(
   }
 );
 
+// @route   POST edited /novels/edit/:id
+// @desc    Edit novel
+// @access  Private
+router.post(
+  '/edit/:id',
+  // ensureAuth,
+  // ensureAdmin,
+
+  async (req, res) => {
+    //const { errors, isValid } = validatePostInput(req.body);
+
+    // Check Validation
+    /*if (!isValid) {
+      // If any errors, send 400 with errors object
+      return res.status(400).json(errors);
+    }*/
+    const updatedNovel = {
+      title: req.body.title,
+      author: req.body.author,
+      synopsis: req.body.synopsis,
+      image: req.body.image,
+    };
+
+    let novel = await Novel.findByIdAndUpdate(
+      { _id: req.params.id },
+      updatedNovel,
+      { new: true }
+    );
+    res.json(novel);
+
+    // const newNovel = new Novel({
+    //   title: req.body.title,
+    //   author: req.body.author,
+    //   synopsis: req.body.synopsis,
+    //   image: req.body.image,
+    // });
+
+    // newNovel.save().then((novel) => res.json(novel));
+  }
+);
+// @route   POST edited novels/:novelId/:chapterId
+// @desc    update chapter
+// @access  Private
+router.post(
+  '/editchapter/:novelId/:chapterId',
+  // ensureAuth,
+  // ensureAdmin,
+  chapterRoutes.editChapter
+);
 // @route   POST /novels/:novelId/addchapter
 // @desc    Create chapter
 // @access  Private

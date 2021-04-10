@@ -13,6 +13,7 @@ import * as actions from '../../Store/actions/index';
 import AddNovel from '../Admin/AddNovel';
 import AllNovels from '../Admin/AllNovels';
 import NovelPage from '../Admin/Novel/NovelPage';
+import ChapterPage from '../Admin/ChapterPage';
 import AddChapter from '../Admin/AddChapter';
 import Footer from '../../Components/Footer/Footer';
 import ScrollToTop from '../../utils/ScrollToTop';
@@ -20,6 +21,8 @@ import NotFound from '../NotFound/NotFound';
 import Aboutus from '../AboutUs/Aboutus';
 import ContactUs from '../ContactUs/ContactUs';
 import CommentPolicy from '../DisqusComment/CommentPolicy';
+import EditNovel from '../Admin/EditNovel';
+import EditChapter from '../Admin/EditChapter';
 class Layout extends Component {
   componentDidMount() {
     if (localStorage.getItem('userToken') !== null) {
@@ -49,6 +52,22 @@ class Layout extends Component {
           <Route path='/admin/postnovel' exact component={AddNovel}></Route>
           <Route path='/admin/novels' exact component={AllNovels}></Route>
           <Route path='/admin/novels/:id' exact component={NovelPage}></Route>
+          <Route
+            path='/admin/novels/edit/:id'
+            exact
+            component={EditNovel}
+          ></Route>
+          <Route
+            path='/admin/novels/:id/:no'
+            exact
+            component={ChapterPage}
+          ></Route>
+
+          <Route
+            path='/admin/novels/editchapter/:id/:no'
+            exact
+            component={EditChapter}
+          ></Route>
           <Route
             path='/admin/addchapter/:novelId'
             exact
