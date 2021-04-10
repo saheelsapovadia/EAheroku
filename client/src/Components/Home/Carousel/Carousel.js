@@ -54,28 +54,49 @@ class CarouselMain extends Component {
       infinite: true,
       speed: 500,
       slidesToShow: 4,
-      slidesToScroll: 1,
+      slidesToScroll: 2,
       initialSlide: 0,
+      autoplaySpeed: 4000,
+      autoplay: true,
+
       nextArrow: <SampleNextArrow />,
       prevArrow: <SamplePrevArrow />,
       responsive: [
+        // {
+        //   breakpoint: 1024,
+        //   settings: {
+        //     slidesToShow: 5,
+        //     slidesToScroll: 3,
+        //     infinite: true,
+        //     dots: true,
+        //     autoplaySpeed: 4000,
+        //     autoplay: true,
+
+        //     nextArrow: <SampleNextArrow />,
+        //     prevArrow: <SamplePrevArrow />,
+        //   },
+        // },
         {
-          breakpoint: 1024,
+          breakpoint: 768,
           settings: {
-            slidesToShow: 4,
-            slidesToScroll: 2,
-            infinite: true,
-            dots: true,
+            slidesToShow: 5,
+            slidesToScroll: 1,
+            initialSlide: 0,
+            autoplaySpeed: 4000,
+            autoplay: true,
+
             nextArrow: <SampleNextArrow />,
             prevArrow: <SamplePrevArrow />,
           },
         },
         {
-          breakpoint: 600,
+          breakpoint: 540,
           settings: {
             slidesToShow: 2,
             slidesToScroll: 1,
             initialSlide: 2,
+            autoplaySpeed: 4000,
+            autoplay: true,
             nextArrow: <SampleNextArrow />,
             prevArrow: <SamplePrevArrow />,
           },
@@ -83,19 +104,11 @@ class CarouselMain extends Component {
         {
           breakpoint: 480,
           settings: {
-            slidesToShow: 2,
-            slidesToScroll: 1,
-            initialSlide: 2,
-            nextArrow: <SampleNextArrow />,
-            prevArrow: <SamplePrevArrow />,
-          },
-        },
-        {
-          breakpoint: 375,
-          settings: {
             slidesToShow: 1,
             slidesToScroll: 1,
             initialSlide: 1,
+            autoplaySpeed: 4000,
+            autoplay: true,
             nextArrow: <SampleNextArrow />,
             prevArrow: <SamplePrevArrow />,
           },
@@ -134,13 +147,13 @@ class CarouselMain extends Component {
           // />
           <CardDeck>
             <Card
-              style={{ width: '15rem', margin: '2rem' }}
+              // style={{ width: '15rem', margin: '2rem' }}
               onClick={() => this.novelSelectedHandler(novel._id)}
-              className='carousel'
+              className="carousel"
             >
-              <Card.Img className='carousel-img' src={novel.image} />
+              <Card.Img className="carousel-img" src={novel.image} />
 
-              <Card.Body className='carousel-body'>{novel.title}</Card.Body>
+              <Card.Body className="carousel-body">{novel.title}</Card.Body>
             </Card>
           </CardDeck>
         );

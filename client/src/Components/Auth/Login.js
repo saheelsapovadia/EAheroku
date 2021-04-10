@@ -4,6 +4,7 @@ import GoogleLogin from 'react-google-login';
 import refreshTokenSetup from '../../utils/refreshToken';
 import { connect } from 'react-redux';
 import * as actions from '../../Store/actions/index';
+import { Card } from 'react-bootstrap';
 
 const clientId =
   '957555850286-fdghjg3gfo010plts5uer77f3fpfc9c9.apps.googleusercontent.com';
@@ -31,18 +32,16 @@ class Login extends Component {
       alert(`Failed to login. 😢 Developers will surely look into it!`);
     };
     return (
-      <div>
-        <GoogleLogin
-          clientId={clientId}
-          buttonText='Login'
-          onSuccess={onSuccess}
-          onFailure={onFailure}
-          accessType='offline'
-          cookiePolicy={'single_host_origin'}
-          style={{ marginTop: '100px' }}
-          isSignedIn={true}
-        />
-      </div>
+      <GoogleLogin
+        clientId={clientId}
+        buttonText="Login"
+        onSuccess={onSuccess}
+        onFailure={onFailure}
+        accessType="offline"
+        cookiePolicy={'single_host_origin'}
+        style={{ marginTop: '100px' }}
+        isSignedIn={true}
+      />
     );
   }
 }

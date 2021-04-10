@@ -12,7 +12,7 @@ class NovelCard extends Component {
       >
         <Card.Img src={this.props.image} />
 
-        <Card.Body className="px-2">{this.props.title}</Card.Body>
+        <Card.Body className="px-2 novelCardBody">{this.props.title}</Card.Body>
       </Card>
     );
   }

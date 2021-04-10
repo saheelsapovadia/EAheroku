@@ -12,7 +12,7 @@ class Home extends Component {
     return (
       <Aux>
         <Container className="set-padding">
-          <Carousel style={{ marginLeft: '10px' }}></Carousel>
+          <Carousel></Carousel>
           <main></main>
           <Top></Top>
           <Latest></Latest>

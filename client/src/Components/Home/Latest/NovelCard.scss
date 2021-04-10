@@ -19,6 +19,7 @@
   box-shadow: 0 13px 27px -5px rgba(1, 1, 2, 0.25),
     0 8px 16px -8px hsla(0, 0%, 0%, 0.7), 0 -6px 16px -6px hsla(0, 0%, 0%, 0.03);
   transition: all ease 200ms;
+  font-weight: bolder;
 }
 
 .novelCard:hover {
@@ -35,7 +36,7 @@
 
 .novelCard-title {
   font-size: 0.97rem;
-  font-weight: 500;
+  font-weight: bolder;
   width: 100%;
   object-fit: fill;
 }
@@ -48,11 +49,12 @@
     justify-content: center;
     width: 40%;
     max-height: 5%;
-    margin: 0.5em;
+
     border: 0;
     float: right;
+    font-weight: bold;
   }
-  .card-body {
+  .novelCardBody {
     font-size: 0.7em;
     margin: 0;
     border: 0;
