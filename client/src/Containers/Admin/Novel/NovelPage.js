@@ -105,6 +105,11 @@ class NovelPage extends Component {
       pathname: '/admin/addchapter/' + id,
     });
   };
+  editNovel = (id) => {
+    this.props.history.push({
+      pathname: '/admin/novels/edit/' + id,
+    });
+  };
   render() {
     console.log('Novel Component');
     console.log(this.state);
@@ -131,7 +136,12 @@ class NovelPage extends Component {
                 chapterlist={this.state.novelinfo.Chapters}
                 novelId={this.props.match.params.id}
               ></ChapterList>
-
+              <Button
+                onClick={() => this.editNovel(this.props.match.params.id)}
+                variant='link'
+              >
+                Edit
+              </Button>
               <Button
                 onClick={() => this.addChapter(this.props.match.params.id)}
                 variant='link'

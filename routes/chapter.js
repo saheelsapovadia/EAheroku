@@ -18,6 +18,21 @@ exports.showChapter = (req, res, next) => {
     });
 };
 
+exports.editChapter = async (req, res, next) => {
+  let updatedChapter = {
+    no: req.body.no,
+    title: req.body.title,
+    novelId: req.params.novelId,
+    content: req.body.content,
+  };
+  let chapter = await Chapter.findOneAndUpdate(
+    { novelId: req.params.novelId, no: req.params.chapterId },
+    updatedChapter,
+    { new: true }
+  );
+  res.json(chapter);
+};
+
 exports.addChapter = (req, res, next) => {
   //const { errors, isValid } = validatePostInput(req.body);
 
