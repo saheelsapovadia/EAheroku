@@ -17,10 +17,10 @@ class ChapterList extends Component {
     //this.setState({ chapters: this.props.chapterlist });
   }
 
-  chapterSelectHandler = (no) => {
-    console.log('chapter no', no);
+  chapterSelectHandler = (id) => {
+    console.log('chapter no', id);
     this.props.history.push({
-      pathname: '/novels/' + this.props.novelId + '/' + no,
+      pathname: '/novels/' + this.props.novelId + '/' + id,
     });
   };
 
@@ -32,7 +32,7 @@ class ChapterList extends Component {
           key={chapter.no}
           title={chapter.title}
           no={chapter.no}
-          clicked={() => this.chapterSelectHandler(chapter.no)}
+          clicked={() => this.chapterSelectHandler(chapter._id)}
         />
       );
     });

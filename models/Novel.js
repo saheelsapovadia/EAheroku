@@ -42,6 +42,10 @@ const NovelSchema = mongoose.Schema({
       ref: 'Chapter',
     },
   ],
+  lastChapter: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: false,
+  },
   genre: [String],
   meta: {
     views: {

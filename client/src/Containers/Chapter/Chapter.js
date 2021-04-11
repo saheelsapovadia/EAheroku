@@ -15,8 +15,11 @@ import SupportUs from '../../Components/Home/supportus';
 
 class ChapterPage extends Component {
   state = {
-    chapter: {},
-    chapterNo: 0,
+    chapter: {
+      nextChapter: '',
+      prevChapter: '',
+    },
+    chapterId: '',
     wrongChapter: false,
     fontSize: 1,
   };
@@ -34,12 +37,12 @@ class ChapterPage extends Component {
         '/api/novels/' +
           this.props.match.params.id +
           '/' +
-          this.props.match.params.no
+          this.props.match.params.chapterId
       )
       .then((response) => {
         if (response.data) {
-          //console.log(response.data[0]);
-          this.setState({ chapter: response.data[0] });
+          //console.log(response.data);
+          this.setState({ chapter: response.data });
         } else this.setState({ wrongChapter: true });
       });
   }
@@ -49,59 +52,72 @@ class ChapterPage extends Component {
   };
 
   nextChapter = async () => {
-    await this.setState({ chapterNo: this.state.chapterNo + 1 });
+    //console.log(this.state.chapter.nextChapter);
+    if (this.state.chapter.nextChapter)
+      await this.setState({ chapterId: this.state.chapter.nextChapter });
+    else {
+      alert('no next chapter');
+      return;
+    }
+    console.log('state:', this.state.chapterId);
     await axios
       .get(
-        '/api/novels/' + this.props.match.params.id + '/' + this.state.chapterNo
+        '/api/novels/' + this.props.match.params.id + '/' + this.state.chapterId
       )
       .then((response) => {
-        //console.log(response.data[0]);
+        //console.log(response.data);
         if (response.data) {
-          this.setState({ chapter: response.data[0] });
+          this.setState({ chapter: response.data });
           this.props.history.push({
             pathname:
               '/novels/' +
               this.props.match.params.id +
               '/' +
-              this.state.chapterNo,
+              this.state.chapterId,
           });
         } else {
           alert('next chapter not available!');
-          this.setState({ chapterNo: this.state.chapterNo - 1 });
         }
       });
   };
   prevChapter = async () => {
-    if (this.state.chapterNo != 1) {
-      await this.setState({ chapterNo: this.state.chapterNo - 1 });
-      this.props.history.push({
-        pathname:
-          '/novels/' + this.props.match.params.id + '/' + this.state.chapterNo,
-      });
-      axios
-        .get(
-          '/api/novels/' +
-            this.props.match.params.id +
-            '/' +
-            this.state.chapterNo
-        )
-        .then((response) => {
-          console.log(response.data[0]);
-          //if(response.data.)
-          this.setState({ chapter: response.data[0] });
-        });
-    } else {
+    //console.log(this.state.chapter.prevChapter);
+    if (this.state.chapter.prevChapter)
+      await this.setState({ chapterId: this.state.chapter.prevChapter });
+    else {
       alert('no previous chapter');
+      return;
     }
+    axios
+      .get(
+        '/api/novels/' + this.props.match.params.id + '/' + this.state.chapterId
+      )
+      .then((response) => {
+        if (response.data) {
+          //console.log(response.data);
+          //if(response.data.)
+          this.setState({ chapter: response.data });
+          this.props.history.push({
+            pathname:
+              '/novels/' +
+              this.props.match.params.id +
+              '/' +
+              this.state.chapterId,
+          });
+        } else {
+          alert('No prev chapter!');
+        }
+      });
   };
+
   incrementSize = async () => {
-    console.log('incrementing..');
+    //console.log('incrementing..');
     if (this.state.fontSize < 2) {
       await this.setState({ fontSize: this.state.fontSize + 0.2 });
     }
   };
   decrementSize = async () => {
-    console.log('decrementing..');
+    //console.log('decrementing..');
     if (this.state.fontSize > 1.0) {
       await this.setState({ fontSize: this.state.fontSize - 0.2 });
     }

@@ -13,6 +13,14 @@ const ChapterSchema = mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     required: true,
   },
+  prevChapter: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: false,
+  },
+  nextChapter: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: false,
+  },
   content: {
     type: String,
     required: true,
