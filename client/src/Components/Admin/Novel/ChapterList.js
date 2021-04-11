@@ -17,9 +17,9 @@ class ChapterList extends Component {
     //this.setState({ chapters: this.props.chapterlist });
   }
 
-  chapterSelectHandler = (no) => {
+  chapterSelectHandler = (id) => {
     this.props.history.push({
-      pathname: '/admin/novels/' + this.props.novelId + '/' + no,
+      pathname: '/admin/novels/' + this.props.novelId + '/' + id,
     });
   };
 
@@ -31,7 +31,7 @@ class ChapterList extends Component {
           key={chapter.no}
           title={chapter.title}
           no={chapter.no}
-          clicked={() => this.chapterSelectHandler(chapter.no)}
+          clicked={() => this.chapterSelectHandler(chapter._id)}
         />
       );
     });

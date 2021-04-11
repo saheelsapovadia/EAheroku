@@ -56,8 +56,8 @@ router.get(
 // @access  Private
 router.post(
   '/',
-  ensureAuth,
-  ensureAdmin,
+  // ensureAuth,
+  // ensureAdmin,
 
   (req, res) => {
     //const { errors, isValid } = validatePostInput(req.body);
@@ -133,8 +133,8 @@ router.post(
 // @access  Private
 router.post(
   '/:novelId/addchapter',
-  ensureAuth,
-  ensureAdmin,
+  // ensureAuth,
+  // ensureAdmin,
   chapterRoutes.addChapter
 );
 

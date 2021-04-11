@@ -13,10 +13,11 @@ class AddChapter extends Component {
     title: '',
     content: '',
     show: false,
+    chapterId: '',
   };
   componentDidMount() {}
 
-  postChapter = () => {
+  postChapter = async () => {
     console.log('posting chapter...');
     //console.log('userToken', localStorage.getItem('userToken'));
 
@@ -42,8 +43,9 @@ class AddChapter extends Component {
       },
       headers: { 'X-Auth-Token': localStorage.getItem('userToken') },
     })
-      .then((response) => {
+      .then(async (response) => {
         //console.log('new novel: ', response);
+        await this.setState({ chapterId: response.data._id });
         this.handleShow();
       })
       .catch((error) => {
@@ -70,7 +72,10 @@ class AddChapter extends Component {
   handleRedirect = () => {
     this.props.history.push({
       pathname:
-        '/novels/' + this.props.match.params.novelId + '/' + this.state.no,
+        '/admin/novels/' +
+        this.props.match.params.novelId +
+        '/' +
+        this.state.chapterId,
     });
   };
   render() {
