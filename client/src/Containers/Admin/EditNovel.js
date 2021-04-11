@@ -95,7 +95,7 @@ class EditNovel extends Component {
   };
   handleRedirect = () => {
     this.props.history.push({
-      pathname: '/novels/' + this.state.newNovelId,
+      pathname: '/admin/novels/' + this.state.newNovelId,
     });
   };
   render() {

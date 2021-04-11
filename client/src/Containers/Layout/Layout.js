@@ -45,7 +45,11 @@ class Layout extends Component {
           <Route path='/aboutus' exact component={Aboutus}></Route>
           <Route path='/contactus' exact component={ContactUs}></Route>
           <Route path='/novels/:id' exact component={Novel}></Route>
-          <Route path='/novels/:id/:no' exact component={Chapter}></Route>
+          <Route
+            path='/novels/:id/:chapterId'
+            exact
+            component={Chapter}
+          ></Route>
           {/* <ProtectedRoute path='/profile' component={Profile} /> */}
           <Route path='/profile' exact component={Profile}></Route>
           <Route path='/login' exact component={Auth}></Route>
@@ -58,13 +62,13 @@ class Layout extends Component {
             component={EditNovel}
           ></Route>
           <Route
-            path='/admin/novels/:id/:no'
+            path='/admin/novels/:id/:chapterId'
             exact
             component={ChapterPage}
           ></Route>
 
           <Route
-            path='/admin/novels/editchapter/:id/:no'
+            path='/admin/novels/editchapter/:id/:chapterId'
             exact
             component={EditChapter}
           ></Route>

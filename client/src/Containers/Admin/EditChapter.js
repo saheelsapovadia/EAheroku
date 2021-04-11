@@ -21,15 +21,15 @@ class EditChapter extends Component {
         '/api/novels/' +
           this.props.match.params.id +
           '/' +
-          this.props.match.params.no
+          this.props.match.params.chapterId
       )
       .then((response) => {
         if (response.data) {
           //console.log(response.data[0]);
-          this.setState({ chapter: response.data[0] });
-          this.setState({ title: response.data[0].title });
-          this.setState({ no: response.data[0].no });
-          this.setState({ content: response.data[0].content });
+          this.setState({ chapter: response.data });
+          this.setState({ title: response.data.title });
+          this.setState({ no: response.data.no });
+          this.setState({ content: response.data.content });
           this.setState({ isLoading: false });
         } else this.setState({ wrongChapter: true });
       });
@@ -57,7 +57,7 @@ class EditChapter extends Component {
         '/api/novels/editchapter/' +
         this.props.match.params.id +
         '/' +
-        this.state.no,
+        this.state.chapter._id,
       data: {
         title: this.state.title,
         no: this.state.no,
@@ -92,7 +92,11 @@ class EditChapter extends Component {
   };
   handleRedirect = () => {
     this.props.history.push({
-      pathname: '/novels/' + this.props.match.params.id + '/' + this.state.no,
+      pathname:
+        '/admin/novels/' +
+        this.props.match.params.id +
+        '/' +
+        this.props.match.params.chapterId,
     });
   };
   render() {
