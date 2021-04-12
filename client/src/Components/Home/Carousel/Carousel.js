@@ -54,7 +54,7 @@ class CarouselMain extends Component {
       infinite: true,
       speed: 500,
       slidesToShow: 4,
-      slidesToScroll: 2,
+      slidesToScroll: 1,
       initialSlide: 0,
       autoplaySpeed: 4000,
       autoplay: true,
@@ -79,7 +79,7 @@ class CarouselMain extends Component {
         {
           breakpoint: 768,
           settings: {
-            slidesToShow: 5,
+            slidesToShow: 4,
             slidesToScroll: 1,
             initialSlide: 0,
             autoplaySpeed: 4000,
@@ -104,9 +104,9 @@ class CarouselMain extends Component {
         {
           breakpoint: 480,
           settings: {
-            slidesToShow: 1,
+            slidesToShow: 2,
             slidesToScroll: 1,
-            initialSlide: 1,
+            initialSlide: 2,
             autoplaySpeed: 4000,
             autoplay: true,
             nextArrow: <SampleNextArrow />,

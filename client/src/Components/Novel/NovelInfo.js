@@ -29,6 +29,8 @@ class NovelInfo extends Component {
               display: 'flex',
               justifyContent: 'center',
               alignContent: 'center',
+              width: '200px',
+              height: '250px',
             }}
           >
             <img src={this.props.novelInfo.image} alt="Novel Preview"></img>
