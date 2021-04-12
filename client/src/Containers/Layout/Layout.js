@@ -23,6 +23,12 @@ import ContactUs from '../ContactUs/ContactUs';
 import CommentPolicy from '../DisqusComment/CommentPolicy';
 import EditNovel from '../Admin/EditNovel';
 import EditChapter from '../Admin/EditChapter';
+import Analytics from 'react-router-ga';
+import ReactGA from 'react-ga';
+
+const trackingId = 'G-FXG6P09SHJ'; // Replace with your Google Analytics tracking ID
+ReactGA.initialize(trackingId);
+
 class Layout extends Component {
   componentDidMount() {
     if (localStorage.getItem('userToken') !== null) {
@@ -39,46 +45,52 @@ class Layout extends Component {
       <Aux>
         <ScrollToTop />
         <Navbar></Navbar>
-        <Switch>
-          <Route path='/' exact component={Home}></Route>
-          <Route path='/comment-policy' exact component={CommentPolicy}></Route>
-          <Route path='/aboutus' exact component={Aboutus}></Route>
-          <Route path='/contactus' exact component={ContactUs}></Route>
-          <Route path='/novels/:id' exact component={Novel}></Route>
-          <Route
-            path='/novels/:id/:chapterId'
-            exact
-            component={Chapter}
-          ></Route>
-          {/* <ProtectedRoute path='/profile' component={Profile} /> */}
-          <Route path='/profile' exact component={Profile}></Route>
-          <Route path='/login' exact component={Auth}></Route>
-          <Route path='/admin/postnovel' exact component={AddNovel}></Route>
-          <Route path='/admin/novels' exact component={AllNovels}></Route>
-          <Route path='/admin/novels/:id' exact component={NovelPage}></Route>
-          <Route
-            path='/admin/novels/edit/:id'
-            exact
-            component={EditNovel}
-          ></Route>
-          <Route
-            path='/admin/novels/:id/:chapterId'
-            exact
-            component={ChapterPage}
-          ></Route>
+        <Analytics id="G-FXG6P09SHJ" debug>
+          <Switch>
+            <Route path="/" exact component={Home}></Route>
+            <Route
+              path="/comment-policy"
+              exact
+              component={CommentPolicy}
+            ></Route>
+            <Route path="/aboutus" exact component={Aboutus}></Route>
+            <Route path="/contactus" exact component={ContactUs}></Route>
+            <Route path="/novels/:id" exact component={Novel}></Route>
+            <Route
+              path="/novels/:id/:chapterId"
+              exact
+              component={Chapter}
+            ></Route>
+            {/* <ProtectedRoute path='/profile' component={Profile} /> */}
+            <Route path="/profile" exact component={Profile}></Route>
+            <Route path="/login" exact component={Auth}></Route>
+            <Route path="/admin/postnovel" exact component={AddNovel}></Route>
+            <Route path="/admin/novels" exact component={AllNovels}></Route>
+            <Route path="/admin/novels/:id" exact component={NovelPage}></Route>
+            <Route
+              path="/admin/novels/edit/:id"
+              exact
+              component={EditNovel}
+            ></Route>
+            <Route
+              path="/admin/novels/:id/:chapterId"
+              exact
+              component={ChapterPage}
+            ></Route>
 
-          <Route
-            path='/admin/novels/editchapter/:id/:chapterId'
-            exact
-            component={EditChapter}
-          ></Route>
-          <Route
-            path='/admin/addchapter/:novelId'
-            exact
-            component={AddChapter}
-          ></Route>
-          <Route component={NotFound}></Route>
-        </Switch>
+            <Route
+              path="/admin/novels/editchapter/:id/:chapterId"
+              exact
+              component={EditChapter}
+            ></Route>
+            <Route
+              path="/admin/addchapter/:novelId"
+              exact
+              component={AddChapter}
+            ></Route>
+            <Route component={NotFound}></Route>
+          </Switch>
+        </Analytics>
         <Footer />
       </Aux>
     );

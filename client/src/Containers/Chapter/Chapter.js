@@ -12,6 +12,7 @@ import NotFound from '../NotFound/NotFound';
 import Disqus from 'disqus-react';
 import SupportUs from '../../Components/Home/supportus';
 //import * as actionTypes from '../../store/actions/actionTypes';
+import './Chapter.css';
 
 class ChapterPage extends Component {
   state = {
@@ -139,59 +140,61 @@ class ChapterPage extends Component {
       return <NotFound></NotFound>;
     } else {
       return (
-        <Aux>
-          <Container style={{ fontSize: fontSize + 'em' }}>
-            <Row className='ml-auto'>
-              <Button
-                className='mr-2'
-                variant='primary'
-                onClick={() => this.prevChapter()}
-              >
-                <AiFillCaretLeft />
-                Prev
-              </Button>
-              <Button
-                className='mr-2'
-                variant='primary'
-                onClick={() => this.nextChapter()}
-              >
-                <AiFillCaretRight />
-                Next
-              </Button>
-            </Row>
-            <h3 className='mt-3 px-3'>
-              {this.state.chapter.no}- {this.state.chapter.title}
-            </h3>
-            <ToolBar
-              inc={this.incrementSize}
-              dec={this.decrementSize}
-            ></ToolBar>
-            <div dangerouslySetInnerHTML={this.createMarkup()}></div>
-            <Row>
-              <Button
-                className='mr-2'
-                variant='primary'
-                onClick={() => this.prevChapter()}
-              >
-                <AiFillCaretLeft />
-                Prev
-              </Button>
-              <Button
-                className='mr-2'
-                variant='primary'
-                onClick={() => this.nextChapter()}
-              >
-                <AiFillCaretRight />
-                Next
-              </Button>
-            </Row>
-            <SupportUs />
-            <Disqus.DiscussionEmbed
-              shortname={disqusShortname}
-              config={disqusConfig}
-            />
-          </Container>
-        </Aux>
+        <div className="noselect">
+          <Aux>
+            <Container style={{ fontSize: fontSize + 'em' }}>
+              <Row className="ml-auto">
+                <Button
+                  className="mr-2"
+                  variant="primary"
+                  onClick={() => this.prevChapter()}
+                >
+                  <AiFillCaretLeft />
+                  Prev
+                </Button>
+                <Button
+                  className="mr-2"
+                  variant="primary"
+                  onClick={() => this.nextChapter()}
+                >
+                  <AiFillCaretRight />
+                  Next
+                </Button>
+              </Row>
+              <h3 className="mt-3 px-3">
+                {this.state.chapter.no}- {this.state.chapter.title}
+              </h3>
+              <ToolBar
+                inc={this.incrementSize}
+                dec={this.decrementSize}
+              ></ToolBar>
+              <div dangerouslySetInnerHTML={this.createMarkup()}></div>
+              <Row>
+                <Button
+                  className="mr-2"
+                  variant="primary"
+                  onClick={() => this.prevChapter()}
+                >
+                  <AiFillCaretLeft />
+                  Prev
+                </Button>
+                <Button
+                  className="mr-2"
+                  variant="primary"
+                  onClick={() => this.nextChapter()}
+                >
+                  <AiFillCaretRight />
+                  Next
+                </Button>
+              </Row>
+              <SupportUs />
+              <Disqus.DiscussionEmbed
+                shortname={disqusShortname}
+                config={disqusConfig}
+              />
+            </Container>
+          </Aux>
+        </div>
       );
     }
   }

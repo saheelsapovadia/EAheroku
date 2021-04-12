@@ -10,7 +10,7 @@
   margin: '2rem';
   border-radius: 0.6em;
   // height: 27em;
-  width: 25%;
+  width: 20%;
   //max-height: 30%;
   border: 0;
   margin: 1em;
@@ -48,6 +48,31 @@
     align-items: flex-start;
     justify-content: center;
     width: 40%;
+    max-height: 5%;
+
+    border: 0;
+    float: right;
+    font-weight: bold;
+  }
+  .novelCardBody {
+    font-size: 0.7em;
+    margin: 0;
+    border: 0;
+    font-weight: 500;
+    width: 100%;
+    object-fit: fill;
+    justify-content: center;
+    padding: 1em;
+  }
+}
+
+@media only screen and (max-device-width: 320px) {
+  .novelCard {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 38%;
     max-height: 5%;
 
     border: 0;
