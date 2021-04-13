@@ -6,12 +6,13 @@ import Latest from '../../Components/Home/Latest/Latest';
 import SupportUs from '../../Components/Home/supportus';
 import { Container } from 'react-bootstrap';
 import './Home.css';
-
+import TitleComponent from '../../utils/TitleComponent';
 class Home extends Component {
   render() {
     return (
       <Aux>
-        <Container className="set-padding">
+        <TitleComponent title='EA'></TitleComponent>
+        <Container className='set-padding'>
           <Carousel></Carousel>
           <main></main>
           <Top></Top>

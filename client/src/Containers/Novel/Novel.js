@@ -11,6 +11,7 @@ import * as actions from '../../Store/actions/index';
 import { addBookmark } from '../../Store/actions/userActions';
 import LoadingNovelPage from './Loading/LoadingNovelPage';
 import Disqus from 'disqus-react';
+import TitleComponent from '../../utils/TitleComponent';
 class Novel extends Component {
   state = {
     novelinfo: {
@@ -118,6 +119,7 @@ class Novel extends Component {
     } else {
       return (
         <Aux>
+          <TitleComponent title={this.state.novelinfo.title}></TitleComponent>
           <Container>
             <h3 className='px-4 mb-5 mt-3'>{this.state.novelinfo.title} </h3>
             <NovelInfo

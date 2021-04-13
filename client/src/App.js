@@ -6,7 +6,8 @@ import { Provider } from 'react-redux';
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import userReducer from './Store/reducers/userReducer';
 import thunk from 'redux-thunk';
-// import ReactGA from 'react-ga';
+import ReactGA from 'react-ga';
+import { createBrowserHistory } from 'history';
 // import { createBrowserHistory } from 'history';
 
 // const trackingId = 'G-FXG6P09SHJ'; // Replace with your Google Analytics tracking ID
@@ -24,19 +25,21 @@ const store = createStore(
   rootReducer,
   composeEnhancers(applyMiddleware(thunk))
 );
-// const history = createBrowserHistory();
 
-// Initialize google analytics page view tracking
-// history.listen((location) => {
-//   ReactGA.set({ page: location.pathname }); // Update the user's current page
-//   ReactGA.pageview(location.pathname); // Record a pageview for the given page
-// });
+export const history = createBrowserHistory();
+history.listen((location) => {
+  console.log('location pathname: ', location.pathname);
+  ReactGA.pageview(location.pathname + location.search);
+});
 class App extends Component {
+  componentDidMount() {
+    ReactGA.initialize('UA-194302215-1');
+  }
   render() {
     console.log('App Component');
     return (
       <Provider store={store}>
-        <BrowserRouter>
+        <BrowserRouter history={history}>
           <div>
             <Layout></Layout>
           </div>
