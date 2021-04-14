@@ -1,45 +1,56 @@
 import React from 'react';
 import { Card, CardDeck, Button } from 'react-bootstrap';
+import './Developer.scss';
 
 function Developer() {
   return (
-    <div>
-      <CardDeck className='mt-4'>
-        <Card>
-          <Card.Img variant='top' src='holder.js/100px160' />
-          <Card.Body>
-            <Card.Title>Bhrugu Sharma</Card.Title>
-            <Card.Text>Full-Stack developer and Profesional in CSS</Card.Text>
-            <Card.Text></Card.Text>
-          </Card.Body>
-          <Card.Footer>
-            <Button variant='dark'>Support</Button>{' '}
-          </Card.Footer>
-        </Card>
-        <Card>
-          <Card.Img variant='top' src='s4vvy.jpg' />
-          <Card.Body>
-            <Card.Title>Saheel Sapovadia</Card.Title>
-            <Card.Text>Tech Lead</Card.Text>
-            <Card.Text></Card.Text>
-          </Card.Body>
-          <Card.Footer>
-            <Button variant='dark'>Support</Button>{' '}
-          </Card.Footer>
-        </Card>
-        <Card>
-          <Card.Img variant='top' src='holder.js/100px160' />
-          <Card.Body>
-            <Card.Title>Gaurav Suthar</Card.Title>
-            <Card.Text>Front-end Developer</Card.Text>
-            <Card.Text></Card.Text>
-          </Card.Body>
-          <Card.Footer>
-            <Button variant='dark'>Support</Button>{' '}
-          </Card.Footer>
-        </Card>
-      </CardDeck>
-    </div>
+    <CardDeck>
+      <Card className="developer">
+        <Card.Img src="Bhrugu.jpg" className="developer-img" />
+        <Card.Body className="DeveloperBody">
+          <Card.Title>Bhrugu Sharma</Card.Title>
+          <Card.Text>Full-Stack developer and Profesional in CSS</Card.Text>
+          <Card.Text></Card.Text>
+        </Card.Body>
+        <Card.Footer className="developer-footer">
+          <Button style={{ backgroundColor: 'black' }}>
+            <a href="https://ko-fi.com/M4M248BM9" style={{ color: 'white' }}>
+              Support EATranslations
+            </a>
+          </Button>{' '}
+        </Card.Footer>
+      </Card>
+      <Card className="developer">
+        <Card.Img src="s4vvy.jpg" className="developer-img" />
+        <Card.Body className="DeveloperBody">
+          <Card.Title>Saheel Sapovadia</Card.Title>
+          <Card.Text>Full-Stack developer and Profesional in CSS</Card.Text>
+          <Card.Text></Card.Text>
+        </Card.Body>
+        <Card.Footer className="developer-footer">
+          <Button style={{ backgroundColor: 'black' }}>
+            <a href="https://ko-fi.com/M4M248BM9" style={{ color: 'white' }}>
+              Support EATranslations
+            </a>
+          </Button>{' '}
+        </Card.Footer>
+      </Card>
+      <Card className="developer">
+        <Card.Img src="gaurav.jpg" className="developer-img" />
+        <Card.Body className="DeveloperBody">
+          <Card.Title>Gaurav Suthar</Card.Title>
+          <Card.Text>Full-Stack developer and Profesional in CSS</Card.Text>
+          <Card.Text></Card.Text>
+        </Card.Body>
+        <Card.Footer className="developer-footer">
+          <Button style={{ backgroundColor: 'black' }}>
+            <a href="https://ko-fi.com/M4M248BM9" style={{ color: 'white' }}>
+              Support EATranslations
+            </a>
+          </Button>{' '}
+        </Card.Footer>
+      </Card>
+    </CardDeck>
   );
 }
 
