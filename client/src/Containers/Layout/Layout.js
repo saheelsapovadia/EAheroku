@@ -26,6 +26,7 @@ import EditChapter from '../Admin/EditChapter';
 
 import ReactGA from 'react-ga';
 import { createBrowserHistory } from 'history';
+import Library from '../Library/Library';
 
 export const history = createBrowserHistory();
 history.listen((location) => {
@@ -67,6 +68,7 @@ class Layout extends Component {
           <Route path='/' exact component={Home}></Route>
           <Route path='/comment-policy' exact component={CommentPolicy}></Route>
           <Route path='/aboutus' exact component={Aboutus}></Route>
+          <Route path='/library' exact component={Library}></Route>
           <Route path='/contactus' exact component={ContactUs}></Route>
           <Route path='/novels/:id' exact component={Novel}></Route>
           <Route

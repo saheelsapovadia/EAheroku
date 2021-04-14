@@ -1,4 +1,4 @@
-$link-light-grey: #6c757d;
+$link-light-grey: #212930;
 $primary-orange: #394beb; //before: fed136
 $footer-background-light-grey: #212529;
 $footer-background-grey: #1a1d20;
@@ -48,7 +48,7 @@ footer {
       color: #212529;
     }
     .nav-link:hover {
-      color: white;
+      color: rgb(52, 13, 126);
     }
     span.nav-link {
       color: $link-light-grey;

@@ -39,8 +39,7 @@ class NavbarMain extends Component {
     if (this.props.isSignedIn) {
       this.setState({
         links: [
-          { href: '/', text: 'Get Started' },
-          { href: '/', text: 'Library' },
+          { href: '/library', text: 'Library' },
           { href: '/aboutus', text: 'About Us' },
           { href: '/contactus', text: 'Contact Us' },
         ],
@@ -48,8 +47,7 @@ class NavbarMain extends Component {
     } else {
       this.setState({
         links: [
-          { href: '/', text: 'Get Started' },
-          { href: '/', text: 'Library' },
+          { href: '/library', text: 'Library' },
           { href: '/aboutus', text: 'About Us' },
           { href: '/contactus', text: 'Contact Us' },
         ],
@@ -61,8 +59,7 @@ class NavbarMain extends Component {
       if (this.props.isSignedIn) {
         this.setState({
           links: [
-            { href: '/', text: 'Get Started' },
-            { href: '/', text: 'Library' },
+            { href: '/library', text: 'Library' },
             { href: '/aboutus', text: 'About Us' },
             { href: '/contactus', text: 'Contact Us' },
 
@@ -72,8 +69,7 @@ class NavbarMain extends Component {
       } else {
         this.setState({
           links: [
-            { href: '/', text: 'Get Started' },
-            { href: '/', text: 'Library' },
+            { href: '/library', text: 'Library' },
             { href: '/aboutus', text: 'About Us' },
             { href: '/contactus', text: 'Contact Us' },
           ],

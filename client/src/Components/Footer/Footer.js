@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import { Container, Col, Row } from 'react-bootstrap';
-import { FaInstagram, FaFacebook, FaDiscord } from 'react-icons/fa';
+import { FaInstagram, FaTwitter, FaDiscord } from 'react-icons/fa';
 import './footer.scss';
+import { Link } from 'react-router-dom';
 class Footer extends Component {
   render() {
     return (
@@ -23,12 +24,12 @@ class Footer extends Component {
                 </li>
                 <li class='nav-item'>
                   <a class='nav-link' href='#'>
-                    Library
+                    <Link to='/library'>Library</Link>
                   </a>
                 </li>
                 <li class='nav-item'>
                   <a class='nav-link' href='#'>
-                    Completed
+                    <Link to='/library'>Completed</Link>
                   </a>
                 </li>
                 <li class='nav-item'>
@@ -50,21 +51,27 @@ class Footer extends Component {
                 </li>
                 <li class='nav-item'>
                   <a class='nav-link' href='#'>
-                    <i class='fas fa-comments'></i>Staff
+                    <Link to='/aboutus'>
+                      <i class='fas fa-comments'></i>Staff
+                    </Link>
                   </a>
                 </li>
                 <li class='nav-item'>
                   <a class='nav-link' href='#'>
-                    <i class='fas fa-comments'></i>Tech
+                    <Link to='/aboutus'>
+                      <i class='fas fa-comments'></i>Tech
+                    </Link>
                   </a>
                 </li>
                 <li class='nav-item'>
                   <a class='nav-link' href='#'>
-                    <i class='fas fa-envelope'></i>Contact us
+                    <Link to='/contactus'>
+                      <i class='fas fa-envelope'></i>Contact us
+                    </Link>
                   </a>
                 </li>
                 <li class='nav-item'>
-                  <a class='nav-link' href='#'>
+                  <a class='nav-link' href='https://ko-fi.com/M4M248BM9'>
                     <i class='fas fa-star'></i>Support
                   </a>
                 </li>
@@ -85,13 +92,13 @@ class Footer extends Component {
             </div>
             <div class='col-md-4 box'>
               <ul class='list-inline social-buttons'>
-                <a href='#'>
-                  <FaFacebook size='2em' style={{ marginLeft: '10px' }} />
+                <a href='https://twitter.com/EA_Translation?s=09'>
+                  <FaTwitter size='2em' style={{ marginLeft: '10px' }} />
                 </a>
-                <a href='#'>
+                <a href='https://discord.gg/8uESkwvzbe'>
                   <FaDiscord size='2em' style={{ marginLeft: '10px' }} />
                 </a>
-                <a href='#'>
+                <a href='https://instagram.com/euphoria_airlines?igshid=g8iqne5q3jb4'>
                   <FaInstagram size='2em' style={{ marginLeft: '10px' }} />
                 </a>
               </ul>
