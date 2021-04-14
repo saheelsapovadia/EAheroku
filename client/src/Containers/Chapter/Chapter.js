@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import Aux from '../../hoc/Auxiliary';
 import axios from 'axios';
@@ -24,7 +23,15 @@ class ChapterPage extends Component {
     wrongChapter: false,
     fontSize: 1,
   };
+  novelSelectedHandler = (id) => {
+    this.props.history.push({ pathname: '/novels/' + id });
+  };
   componentDidMount() {
+    //stop right-click
+    document.addEventListener('contextmenu', (e) => {
+      e.preventDefault();
+    });
+
     //console.log('component mounted');
     this.setState({ chapterNo: parseInt(this.props.match.params.no) });
     // console.log(
@@ -143,6 +150,22 @@ class ChapterPage extends Component {
         <div className="noselect">
           <Aux>
             <Container style={{ fontSize: fontSize + 'em' }}>
+              <Button
+                className="mr-2"
+                style={{
+                  outline: 'none',
+                  boxShadow: 'none',
+                  border: '0',
+                  padding: '5px 10px',
+                  marginBottom: '0.8em',
+                }}
+                variant="dark"
+                onClick={() =>
+                  this.novelSelectedHandler(this.props.match.params.id)
+                }
+              >
+                Go to Synopsis
+              </Button>
               <Row className="ml-auto">
                 <Button
                   className="mr-2"

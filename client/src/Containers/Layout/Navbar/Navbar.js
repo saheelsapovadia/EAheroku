@@ -79,7 +79,7 @@ class NavbarMain extends Component {
   }
   createNavItem = ({ href, text, className }) => (
     <Nav.Item key={text}>
-      <Nav.Link className='navlink'>
+      <Nav.Link className="navlink">
         <Link to={href} onClick={() => this.setExpanded()}>
           {' '}
           {text}
@@ -121,19 +121,19 @@ class NavbarMain extends Component {
         {/* <Image src="panel.png" fluid></Image> */}
         <Navbar
           expanded={this.state.expanded}
-          className='navbar'
-          expand='lg'
+          className="navbar"
+          expand="lg"
           fixed-top
         >
           <Navbar.Brand>
-            <Link to='/' exact>
+            <Link to="/" exact>
               <img
-                src='EA-Logo-edit.png'
-                width='90'
-                height='70'
-                margin='none'
-                className='d-inline-block align-top'
-                alt='EA'
+                src="EA-Logo-edit.png"
+                width="70"
+                height="70"
+                margin="none"
+                className="d-inline-block align-top"
+                alt="EA"
                 style={{ margin: 'none' }}
               />
             </Link>
@@ -141,25 +141,25 @@ class NavbarMain extends Component {
 
           <Navbar.Toggle
             onClick={() => this.setExpanded()}
-            aria-controls='basic-navbar-nav'
+            aria-controls="basic-navbar-nav"
           />
-          <Navbar.Collapse id='basic-navbar-nav'>
-            <Nav className='mr-auto' activeKey='/'>
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="mr-auto" activeKey="/">
               {this.state.links.map(this.createNavItem)}
               {this.props.isSignedIn && this.props.userRole === 'admin' ? (
                 <NavDropdown
-                  title='Admin Console'
-                  id='basic-nav-dropdown'
-                  className='navdropdown'
+                  title="Admin Console"
+                  id="basic-nav-dropdown"
+                  className="navdropdown"
                 >
                   <NavDropdown.Item>
-                    <Link to='/admin/novels' onClick={() => this.setExpanded()}>
+                    <Link to="/admin/novels" onClick={() => this.setExpanded()}>
                       All Novels
                     </Link>
                   </NavDropdown.Item>
                   <NavDropdown.Item>
                     <Link
-                      to='/admin/postnovel'
+                      to="/admin/postnovel"
                       onClick={() => this.setExpanded()}
                     >
                       Post Novels
@@ -171,19 +171,19 @@ class NavbarMain extends Component {
               )}
             </Nav>
 
-            <Nav className='ml-auto navbar' navbar>
+            <Nav className="ml-auto navbar" navbar>
               <Nav.Item>
                 <Nav.Link
-                  href='https://discord.gg/8uESkwvzbe'
-                  className='navlink'
+                  href="https://discord.gg/8uESkwvzbe"
+                  className="navlink"
                   onClick={() => this.setExpanded()}
                 >
-                  <Button variant='outline-light'>
+                  <Button variant="outline-light">
                     <img
                       height={25}
                       width={40}
-                      src='discord.svg'
-                      alt='Discord'
+                      src="discord.svg"
+                      alt="Discord"
                     />
                     Discord
                   </Button>
@@ -192,8 +192,8 @@ class NavbarMain extends Component {
               {this.props.isSignedIn ? (
                 <Nav.Item>
                   <Nav.Link onClick={() => this.setExpanded()}>
-                    <Link to='/profile'>
-                      <Button variant='outline-light'>
+                    <Link to="/profile">
+                      <Button variant="outline-light">
                         <img
                           src={this.props.user.image}
                           style={{
@@ -209,13 +209,13 @@ class NavbarMain extends Component {
               ) : (
                 <Nav.Item>
                   <Nav.Link>
-                    <Link onClick={() => this.setExpanded()} to='/login'>
-                      <Button variant='outline-light'>
+                    <Link onClick={() => this.setExpanded()} to="/login">
+                      <Button variant="outline-light">
                         <img
                           height={25}
                           width={40}
-                          src='google.svg'
-                          alt='Login'
+                          src="google.svg"
+                          alt="Login"
                         />
                         Login
                       </Button>

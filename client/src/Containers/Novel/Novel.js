@@ -8,7 +8,6 @@ import ChapterList from '../../Components/Novel/ChapterList';
 import Container from 'react-bootstrap/Container';
 import SupportUs from '../../Components/Home/supportus';
 import * as actions from '../../Store/actions/index';
-import { addBookmark } from '../../Store/actions/userActions';
 import LoadingNovelPage from './Loading/LoadingNovelPage';
 import Disqus from 'disqus-react';
 import TitleComponent from '../../utils/TitleComponent';
@@ -121,7 +120,7 @@ class Novel extends Component {
         <Aux>
           <TitleComponent title={this.state.novelinfo.title}></TitleComponent>
           <Container>
-            <h3 className='px-4 mb-5 mt-3'>{this.state.novelinfo.title} </h3>
+            <h3 className="px-4 mb-5 mt-3">{this.state.novelinfo.title} </h3>
             <NovelInfo
               novelInfo={this.state.novelinfo}
               isBookmarked={this.state.bookmark}

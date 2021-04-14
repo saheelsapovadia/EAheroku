@@ -2,12 +2,8 @@ import React, { Component } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { FaTrophy, FaPenNib } from 'react-icons/fa';
-import {
-  BsFillCollectionFill,
-  BsBookmarksFill,
-  BsBookmarks,
-} from 'react-icons/bs';
+import { FaPenNib } from 'react-icons/fa';
+import { BsBookmarksFill, BsBookmarks } from 'react-icons/bs';
 import { MdDateRange } from 'react-icons/md';
 class NovelInfo extends Component {
   render() {
@@ -39,20 +35,11 @@ class NovelInfo extends Component {
             <Row>
               <Col className="">
                 <Row className="mx-0 px-0 mb-2">
-                  <Col className="" sm={4}>
-                    <FaTrophy className="mr-2" />
-                    <strong>Rank</strong>
-                  </Col>
-                  <Col className="" sm={8}>
-                    #1
-                  </Col>
-                </Row>
-                <Row className="mx-0 px-0 mb-2">
-                  <Col className="" sm={4}>
+                  <Col className="" sm={6}>
                     <FaPenNib className="mr-2" />
-                    <strong>Author</strong>
+                    <strong>Translator</strong>
                   </Col>
-                  <Col className="" sm={8}>
+                  <Col className="" sm={6}>
                     {this.props.novelInfo.author}
                   </Col>
                 </Row>
@@ -84,6 +71,7 @@ class NovelInfo extends Component {
                     Active
                   </Col>
                 </Row>
+
                 <a className="mr-2" onClick={this.props.toggle}>
                   {bookmark}
                 </a>

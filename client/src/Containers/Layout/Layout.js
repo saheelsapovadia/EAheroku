@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Aux from '../../hoc/Auxiliary';
-import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
+import { Route, Switch, withRouter } from 'react-router-dom';
 import Navbar from './Navbar/Navbar';
 import Home from '../Home/Home';
 import Novel from '../Novel/Novel';
@@ -65,41 +65,41 @@ class Layout extends Component {
 
         <ScrollToTop />
         <Switch>
-          <Route path='/' exact component={Home}></Route>
-          <Route path='/comment-policy' exact component={CommentPolicy}></Route>
-          <Route path='/aboutus' exact component={Aboutus}></Route>
-          <Route path='/library' exact component={Library}></Route>
-          <Route path='/contactus' exact component={ContactUs}></Route>
-          <Route path='/novels/:id' exact component={Novel}></Route>
+          <Route path="/" exact component={Home}></Route>
+          <Route path="/comment-policy" exact component={CommentPolicy}></Route>
+          <Route path="/aboutus" exact component={Aboutus}></Route>
+          <Route path="/library" exact component={Library}></Route>
+          <Route path="/contactus" exact component={ContactUs}></Route>
+          <Route path="/novels/:id" exact component={Novel}></Route>
           <Route
-            path='/novels/:id/:chapterId'
+            path="/novels/:id/:chapterId"
             exact
             component={Chapter}
           ></Route>
           {/* <ProtectedRoute path='/profile' component={Profile} /> */}
-          <Route path='/profile' exact component={Profile}></Route>
-          <Route path='/login' exact component={Auth}></Route>
-          <Route path='/admin/postnovel' exact component={AddNovel}></Route>
-          <Route path='/admin/novels' exact component={AllNovels}></Route>
-          <Route path='/admin/novels/:id' exact component={NovelPage}></Route>
+          <Route path="/profile" exact component={Profile}></Route>
+          <Route path="/login" exact component={Auth}></Route>
+          <Route path="/admin/postnovel" exact component={AddNovel}></Route>
+          <Route path="/admin/novels" exact component={AllNovels}></Route>
+          <Route path="/admin/novels/:id" exact component={NovelPage}></Route>
           <Route
-            path='/admin/novels/edit/:id'
+            path="/admin/novels/edit/:id"
             exact
             component={EditNovel}
           ></Route>
           <Route
-            path='/admin/novels/:id/:chapterId'
+            path="/admin/novels/:id/:chapterId"
             exact
             component={ChapterPage}
           ></Route>
 
           <Route
-            path='/admin/novels/editchapter/:id/:chapterId'
+            path="/admin/novels/editchapter/:id/:chapterId"
             exact
             component={EditChapter}
           ></Route>
           <Route
-            path='/admin/addchapter/:novelId'
+            path="/admin/addchapter/:novelId"
             exact
             component={AddChapter}
           ></Route>
