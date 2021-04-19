@@ -27,7 +27,7 @@ function Owners() {
           <Card.Img src="Ash.jpg" className="test1-img" />
           <Card.Body>
             <Card.Title>Ashlyn Rose</Card.Title>
-            <Card.Text>Managing Director</Card.Text>
+            <Card.Text>Cofounder and Managing Director</Card.Text>
             <Card.Text></Card.Text>
           </Card.Body>
           <Card.Footer>

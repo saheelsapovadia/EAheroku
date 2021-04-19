@@ -27,7 +27,7 @@ function Developer() {
           <Card.Img src="s4vvy.jpg" />
           <Card.Body>
             <Card.Title>Saheel Sapovadia</Card.Title>
-            <Card.Text>Tech Lead</Card.Text>
+            <Card.Text>CoFounder and Fullstack Developer</Card.Text>
             <Card.Text></Card.Text>
           </Card.Body>
           <Card.Footer>
@@ -44,7 +44,7 @@ function Developer() {
           <Card.Img src="gaurav.jpg" />
           <Card.Body>
             <Card.Title>Gaurav Suthar</Card.Title>
-            <Card.Text>Full-Stack developer </Card.Text>
+            <Card.Text>CoFounder and Fullstack Developer </Card.Text>
             <Card.Text></Card.Text>
           </Card.Body>
           <Card.Footer>
