@@ -126,3 +126,9 @@
     width: 100%;
   }
 }
+
+@media only screen and (max-device-width: 480px) {
+  .card-deck {
+    margin-bottom: 20px;
+  }
+}

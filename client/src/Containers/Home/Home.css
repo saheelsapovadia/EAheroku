@@ -1,7 +1,8 @@
 .set-padding {
   padding: 0;
   justify-content: center;
-  margin-left: 240px;
+  /* margin-left: 120px;
+  margin-right: 100px; */
 }
 
 @media only screen and (max-device-width: 375px) {
