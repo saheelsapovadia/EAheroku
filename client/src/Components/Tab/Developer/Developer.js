@@ -10,8 +10,7 @@ function Developer() {
           <Card.Img src="Bhrugu.jpg" />
           <Card.Body>
             <Card.Title>Bhrugu Sharma</Card.Title>
-            <Card.Text>CoFounder and Fullstack Developer</Card.Text>
-            <Card.Text></Card.Text>
+            <Card.Text>CoFounder and Chief Technology Officer</Card.Text>
           </Card.Body>
           <Card.Footer>
             <Button style={{ backgroundColor: 'black' }}>
@@ -44,7 +43,7 @@ function Developer() {
           <Card.Img src="gaurav.jpg" />
           <Card.Body>
             <Card.Title>Gaurav Suthar</Card.Title>
-            <Card.Text>CoFounder and Fullstack Developer </Card.Text>
+            <Card.Text>Frontend Developer </Card.Text>
             <Card.Text></Card.Text>
           </Card.Body>
           <Card.Footer>

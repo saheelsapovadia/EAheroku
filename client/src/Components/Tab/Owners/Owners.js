@@ -44,41 +44,7 @@ function Owners() {
           <Card.Img src="Bhrugu.jpg" />
           <Card.Body>
             <Card.Title>Bhrugu Sharma</Card.Title>
-            <Card.Text>CoFounder and Fullstack Developer</Card.Text>
-            <Card.Text></Card.Text>
-          </Card.Body>
-          <Card.Footer>
-            <Button style={{ backgroundColor: 'black' }}>
-              <a href="https://ko-fi.com/M4M248BM9" style={{ color: 'white' }}>
-                Support EATranslations
-              </a>
-            </Button>{' '}
-          </Card.Footer>
-        </Card>
-      </Col>
-      <Col className="test">
-        <Card style={{ marginTop: '10%' }}>
-          <Card.Img src="s4vvy.jpg" />
-          <Card.Body>
-            <Card.Title>Saheel Sapovadia</Card.Title>
-            <Card.Text>CoFounder and Fullstack Developer</Card.Text>
-            <Card.Text></Card.Text>
-          </Card.Body>
-          <Card.Footer>
-            <Button style={{ backgroundColor: 'black' }}>
-              <a href="https://ko-fi.com/M4M248BM9" style={{ color: 'white' }}>
-                Support EATranslations
-              </a>
-            </Button>{' '}
-          </Card.Footer>
-        </Card>
-      </Col>
-      <Col className="test">
-        <Card style={{ marginTop: '10%' }}>
-          <Card.Img src="gaurav.jpg" />
-          <Card.Body>
-            <Card.Title>Gaurav Suthar</Card.Title>
-            <Card.Text>CoFounder and Fullstack Developer </Card.Text>
+            <Card.Text>CoFounder and Chief Technology Officer</Card.Text>
             <Card.Text></Card.Text>
           </Card.Body>
           <Card.Footer>
