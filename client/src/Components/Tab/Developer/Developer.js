@@ -10,7 +10,7 @@ function Developer() {
           <Card.Img src="Bhrugu.jpg" />
           <Card.Body>
             <Card.Title>Bhrugu Sharma</Card.Title>
-            <Card.Text>CoFounder and Chief Technology Officer</Card.Text>
+            <Card.Text>CoFounder and Fullstack Developer</Card.Text>
           </Card.Body>
           <Card.Footer>
             <Button style={{ backgroundColor: 'black' }}>
