@@ -129,8 +129,8 @@ class NavbarMain extends Component {
             <Link to="/" exact>
               <img
                 src="EA-Logo-edit.png"
-                width="70"
-                height="70"
+                width="120"
+                height="85"
                 margin="none"
                 className="d-inline-block align-top"
                 alt="EA"
