@@ -11,7 +11,7 @@ class Home extends Component {
   render() {
     return (
       <Aux>
-        <TitleComponent title='EA'></TitleComponent>
+        <TitleComponent title='EA Translations'></TitleComponent>
         <Container className='set-padding'>
           <Carousel></Carousel>
           <main></main>
