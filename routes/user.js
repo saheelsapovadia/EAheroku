@@ -9,7 +9,7 @@ const features = require('./feature');
 
 // Load User model
 const User = require('../models/User');
-
+const ContactUs = require('../models/ContactUs');
 // @route   GET api/users/test
 // @desc    Tests users route
 // @access  private
@@ -29,6 +29,8 @@ router.get('/test2', (req, res) => res.json({ msg: 'tests  2' }));
 // @desc    Tests users route
 // @access  Public
 router.get('/', (req, res) => res.json({ msg: 'Users Works' }));
+
+router.post('/contactus', features.contactUs);
 
 // @route   POST /users/:userid/addbookmark
 // @desc    adds bookmark to the list for particular user

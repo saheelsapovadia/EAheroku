@@ -3,6 +3,20 @@ const router = express.Router();
 
 const User = require('../models/User');
 const Novel = require('../models/Novel');
+const ContactUs = require('../models/ContactUs');
+// @route   POST /users/contactus
+// @desc    Post contact us request
+// @access  Public
+exports.contactUs = (req, res) => {
+  const request = new ContactUs({
+    FirstName: req.body.name,
+    LastName: req.body.lastName,
+    Email: req.body.email,
+    Content: req.body.content,
+  });
+  request.save().then((req) => res.json(req));
+};
+
 // @route   GET /:userid/bookmarklist
 // @desc    Get Bookmarked List
 // @access  Public
